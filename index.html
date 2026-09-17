@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aarya Bhujade — AI Filmmaker, AI Artist & VFX Specialist</title>
+  <meta name="description" content="Aarya Bhujade — AI Filmmaker, Cinematic AI Artist, Graphic Designer & VFX Specialist based in Mumbai. Directing Pixels. Crafting Cinema with AI." />
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Aarya Bhujade — AI Filmmaker, AI Artist & VFX Specialist" />
+  <meta property="og:description" content="Directing Pixels. Crafting Cinema with AI. High-end synthetic cinematography, generative video, and hybrid VFX." />
+  <meta property="og:image" content="/assets/images/gauntlet_poster.jpg" />
+  <meta name="theme-color" content="#050507" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23050507'/><circle cx='16' cy='16' r='12' stroke='%23D4A017' stroke-width='2' fill='none'/><polygon points='13,10 23,16 13,22' fill='%23F5C542'/></svg>" />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Bebas+Neue&family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body class="bg-cinema-black text-white selection:bg-gold-molten selection:text-black">
+
+  <!-- 35mm Procedural Film Grain Overlay -->
+  <div class="film-grain-overlay"></div>
+
+  <!-- Cinema Opening Fade-From-Black Loader -->
+  <div class="cinema-loader">
+    <div class="text-center space-y-3">
+      <div class="w-12 h-12 mx-auto rounded-full border border-gold-molten/40 flex items-center justify-center animate-pulse-slow">
+        <span class="font-cinematic text-2xl text-gold-bright tracking-wider">AB</span>
+      </div>
+      <div class="font-mono text-xs tracking-[0.3em] uppercase text-gold-molten">
+        INITIALIZING CINEMA SEQUENCE // 24 FPS
+      </div>
+    </div>
+  </div>
+  <script>
+    (function() {
+      function hideLoader() {
+        var el = document.querySelector('.cinema-loader');
+        if (el) {
+          el.classList.add('fade-out');
+          setTimeout(function() { if (el.parentNode) el.parentNode.removeChild(el); }, 400);
+        }
+      }
+      setTimeout(hideLoader, 400);
+      window.addEventListener('load', hideLoader);
+    })();
+  </script>
+
+  <!-- FIXED NAVIGATION BAR -->
+  <header id="main-nav" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12 flex items-center justify-between">
+    <!-- Brand Monogram & Title -->
+    <a href="#hero" class="flex items-center gap-3 group" data-cursor="AB">
+      <div class="w-9 h-9 rounded-sm border border-gold-molten/60 bg-black/60 backdrop-blur-md flex items-center justify-center group-hover:border-gold-bright group-hover:shadow-gold-glow transition-all duration-300">
+        <span class="font-cinematic text-xl text-gold-bright tracking-wider">AB</span>
+      </div>
+      <div>
+        <span class="font-cinematic text-xl tracking-[0.18em] text-white block leading-none group-hover:text-gold-bright transition-colors">
+          AARYA BHUJADE
+        </span>
+        <span class="font-mono text-[9px] tracking-[0.25em] text-gold-molten uppercase block mt-0.5">
+          AI FILMMAKER // VFX // MUMBAI
+        </span>
+      </div>
+    </a>
+
+    <!-- Live Recording Slate Status -->
+    <div class="hidden xl:flex items-center gap-2 px-3 py-1 rounded bg-black/60 border border-white/10 font-mono text-[11px] text-soft-grey">
+      <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+      <span class="text-white/80">REC</span>
+      <span class="text-gold-molten">[24.00 FPS]</span>
+      <span class="text-white/40">|</span>
+      <span id="slate-live-timecode" class="text-gold-bright font-mono">00:00:00:00</span>
+    </div>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden lg:flex items-center gap-6 font-mono text-xs tracking-widest uppercase text-soft-grey">
+      <a href="#showreel" class="hover:text-gold-bright transition-colors gold-draw-line py-1" data-cursor="PLAY">SHOWREEL</a>
+      <a href="#works" class="hover:text-gold-bright transition-colors gold-draw-line py-1" data-cursor="FILMS">WORKS</a>
+      <a href="#reels" class="hover:text-gold-bright transition-colors gold-draw-line py-1" data-cursor="REELS">REELS</a>
+      <a href="#comics" class="hover:text-gold-bright transition-colors gold-draw-line py-1" data-cursor="COMICS">COMICS</a>
+      <a href="#arsenal" class="hover:text-gold-bright transition-colors gold-draw-line py-1" data-cursor="STACK">ARSENAL</a>
+      <a href="#experience" class="hover:text-gold-bright transition-colors gold-draw-line py-1" data-cursor="CREDITS">EXPERIENCE</a>
+      <a href="#pipeline" class="hover:text-gold-bright transition-colors gold-draw-line py-1" data-cursor="PROCESS">PIPELINE</a>
+      <a href="#about" class="hover:text-gold-bright transition-colors gold-draw-line py-1" data-cursor="BIO">ABOUT</a>
+      <a href="#contact" class="hover:text-gold-bright transition-colors gold-draw-line py-1" data-cursor="SEND">CONTACT</a>
+    </nav>
+
+    <!-- Nav Actions: Sound Atmosphere + Resume PDF + Commission CTA -->
+    <div class="flex items-center gap-3 sm:gap-4">
+      <!-- Download Resume PDF -->
+      <a 
+        href="/assets/aarya_bhujade_resume.pdf" 
+        download="Aarya_Bhujade_Resume.pdf" 
+        class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-gold-molten/50 bg-black/60 hover:bg-gold-molten hover:text-black text-gold-bright font-mono text-[11px] tracking-wider transition-all duration-300" 
+        data-cursor="RESUME" 
+        title="Download Official Resume PDF"
+      >
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        <span>RESUME (PDF)</span>
+      </a>
+
+      <!-- Ambient Cinema Sound Toggle -->
+      <button id="sound-toggle-btn" class="flex items-center gap-2 px-3 py-1.5 rounded border border-white/10 bg-black/40 hover:border-gold-molten/50 text-soft-grey font-mono text-[11px] tracking-wider transition-all duration-300" title="Toggle Atmospheric Cinema Sound" data-cursor="AUDIO">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+        </svg>
+        <span id="sound-label" class="hidden sm:inline">AUDIO: OFF</span>
+        <div id="sound-waves-indicator" class="hidden flex items-end gap-0.5 h-3">
+          <span class="w-0.5 h-full bg-gold-bright animate-pulse"></span>
+          <span class="w-0.5 h-2/3 bg-gold-bright animate-pulse" style="animation-delay: 0.15s"></span>
+          <span class="w-0.5 h-full bg-gold-bright animate-pulse" style="animation-delay: 0.3s"></span>
+        </div>
+      </button>
+
+      <!-- Commission CTA -->
+      <a href="#contact" class="hidden md:inline-flex items-center gap-2 px-4 py-1.5 rounded bg-gold-molten hover:bg-gold-bright text-black font-mono text-xs font-semibold tracking-wider uppercase transition-all duration-300 shadow-gold-glow hover:scale-105" data-cursor="BRIEF">
+        <span>CONTACT</span>
+        <span>➔</span>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-soft-grey hover:text-white" aria-label="Toggle Navigation">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu-drawer" class="hidden fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col justify-center items-center gap-6 font-cinematic text-3xl tracking-widest uppercase">
+    <button id="close-mobile-menu" class="absolute top-6 right-6 text-soft-grey hover:text-white p-2">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <a href="#showreel" class="hover:text-gold-bright">SHOWREEL</a>
+    <a href="#works" class="hover:text-gold-bright">SELECTED WORKS</a>
+    <a href="#reels" class="hover:text-gold-bright">DIRECTOR'S REELS</a>
+    <a href="#comics" class="hover:text-gold-bright">COMIC CHRONICLES</a>
+    <a href="#arsenal" class="hover:text-gold-bright">THE ARSENAL</a>
+    <a href="#experience" class="hover:text-gold-bright">EXPERIENCE</a>
+    <a href="#pipeline" class="hover:text-gold-bright">PIPELINE</a>
+    <a href="#about" class="hover:text-gold-bright">ABOUT</a>
+    <a href="/assets/aarya_bhujade_resume.pdf" download="Aarya_Bhujade_Resume.pdf" class="text-gold-bright text-xl font-mono">DOWNLOAD RESUME (PDF)</a>
+    <a href="#contact" class="hover:text-gold-bright text-gold-molten">INITIATE CONTACT</a>
+  </div>
+
+  <main>
+    <!-- HERO SECTION (FULL VIEWPORT) -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16 px-6">
+      <!-- Background Film Reel Image -->
+      <div class="absolute inset-0 bg-cover bg-center opacity-35 filter brightness-90 mix-blend-screen scale-105 pointer-events-none" style="background-image: url('/assets/images/hero_film_reel.jpg');"></div>
+
+      <!-- Live Interactive Gold Dust & Bokeh Canvas -->
+      <canvas id="hero-particles-canvas" class="absolute inset-0 pointer-events-none z-10"></canvas>
+
+      <!-- Deep Atmospheric Edge Vignette (Black to Steel Blue) -->
+      <div class="absolute inset-0 bg-gradient-to-t from-cinema-black via-transparent to-cinema-black/90 pointer-events-none z-10"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-cinema-black via-transparent to-steel-dark/80 pointer-events-none z-10"></div>
+
+      <!-- Anamorphic Lens Flare Glow behind Hero Title -->
+      <div class="anamorphic-flare w-3/4 max-w-4xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"></div>
+
+      <!-- Hero Content Container -->
+      <div class="relative z-20 max-w-5xl mx-auto text-center space-y-7 mt-6">
+        
+        <!-- Film Festival & Credentials Pill -->
+        <div class="inline-flex flex-wrap items-center justify-center gap-2.5 px-4 py-1.5 rounded-full bg-black/60 border border-gold-molten/40 backdrop-blur-md text-[11px] font-mono tracking-widest text-gold-bright uppercase shadow-gold-glow">
+          <svg class="w-4 h-4 text-gold-bright shrink-0" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6.4-4.8-6.4 4.8 2.4-7.2-6-4.8h7.6z"/>
+          </svg>
+          <span>AI FILMMAKER // ADVFX+ MAAC MUMBAI // AAFT PHOTOGRAPHY</span>
+        </div>
+
+        <!-- Hero Title Treatment: "GAUNTLET" style condensed cinematic type with metallic gold sheen -->
+        <div class="space-y-3">
+          <h1 class="font-cinematic text-6xl sm:text-8xl md:text-9xl lg:text-[10.5rem] tracking-[0.14em] sm:tracking-[0.18em] leading-none uppercase text-gold-metallic select-none drop-shadow-[0_10px_35px_rgba(212,160,23,0.3)]">
+            AARYA BHUJADE
+          </h1>
+          
+          <!-- Subtitle from Resume & Identity -->
+          <div class="font-mono text-xs sm:text-sm md:text-base tracking-[0.25em] text-white/90 uppercase font-light">
+            AI FILMMAKER <span class="text-gold-molten mx-1">|</span> AI ARTIST & GRAPHIC DESIGNER <span class="text-gold-molten mx-1">|</span> VFX SPECIALIST
+          </div>
+        </div>
+
+        <!-- Tagline -->
+        <p class="max-w-2xl mx-auto text-base sm:text-xl text-soft-grey font-light tracking-wide leading-relaxed">
+          &ldquo;Directing Pixels. Crafting Cinema with AI.&rdquo;
+        </p>
+
+        <!-- Call to Action Buttons -->
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+          <!-- Primary CTA: Watch Showreel -->
+          <button class="watch-showreel-trigger group relative px-8 py-4 rounded bg-gradient-to-r from-gold-molten to-gold-bright hover:from-gold-bright hover:to-gold-molten text-black font-semibold font-mono text-xs tracking-[0.2em] uppercase transition-all duration-300 shadow-gold-glow-lg hover:scale-105 flex items-center gap-3" data-cursor="PLAY">
+            <span class="w-7 h-7 rounded-full bg-black/20 flex items-center justify-center group-hover:bg-black/30 transition-colors">
+              <svg class="w-4 h-4 text-black translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </span>
+            <span>WATCH SHOWREEL 2026</span>
+          </button>
+
+          <!-- Secondary CTA: Explore Works -->
+          <a href="#works" class="px-7 py-4 rounded border border-white/20 hover:border-gold-molten/80 bg-black/40 hover:bg-black/70 text-white hover:text-gold-bright font-mono text-xs tracking-[0.2em] uppercase transition-all duration-300 backdrop-blur-sm flex items-center gap-2" data-cursor="EXPLORE">
+            <span>SELECTED WORKS</span>
+            <span>➔</span>
+          </a>
+
+          <!-- Tertiary CTA: Resume PDF -->
+          <a href="/assets/aarya_bhujade_resume.pdf" download="Aarya_Bhujade_Resume.pdf" class="px-6 py-4 rounded border border-gold-molten/40 hover:bg-gold-molten hover:text-black text-gold-bright font-mono text-xs tracking-[0.2em] uppercase transition-all duration-300 flex items-center gap-2" data-cursor="PDF">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+            <span>RESUME PDF</span>
+          </a>
+        </div>
+
+        <!-- Technical & Geographical Metadata Ribbon -->
+        <div class="pt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-8 font-mono text-[11px] tracking-widest text-soft-grey/60 uppercase">
+          <div><span class="text-gold-molten">LOCATION:</span> MUMBAI, INDIA</div>
+          <div class="hidden sm:block text-white/20">•</div>
+          <div><span class="text-gold-molten">PHONE:</span> +91 9130636170</div>
+          <div class="hidden sm:block text-white/20">•</div>
+          <div><span class="text-gold-molten">EMAIL:</span> aarya.bhujade.123@gmail.com</div>
+        </div>
+
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-soft-grey/60 font-mono text-[10px] tracking-widest uppercase pointer-events-none">
+        <span>SCROLL TO ENTER</span>
+        <div class="w-px h-8 bg-gradient-to-b from-gold-molten to-transparent animate-pulse"></div>
+      </div>
+    </section>
+
+
+    <!-- SHOWREEL SECTION (16:9 / 2.39:1 THEATRICAL PLAYER) -->
+    <section id="showreel" class="relative py-28 px-6 md:px-12 bg-cinema-black border-y border-white/5">
+      <!-- Section Header -->
+      <div class="max-w-6xl mx-auto mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-gold-molten uppercase mb-2">
+            <span class="w-2 h-2 rounded-full bg-gold-bright"></span>
+            SHOWREEL 2026 // MASTER MONTAGE
+          </div>
+          <h2 class="font-cinematic text-4xl sm:text-5xl md:text-6xl tracking-wider text-white text-gold-metallic">
+            THE SYNTHETIC CINEMA SHOWREEL
+          </h2>
+        </div>
+        <div class="font-mono text-xs text-soft-grey/80 flex items-center gap-4">
+          <span class="px-2.5 py-1 rounded bg-black/60 border border-white/10 text-gold-bright">4K UHD</span>
+          <span class="px-2.5 py-1 rounded bg-black/60 border border-white/10">24.000 FPS</span>
+          <span class="px-2.5 py-1 rounded bg-black/60 border border-white/10">DOLBY ATMOS SIM</span>
+        </div>
+      </div>
+
+      <!-- Cinema Screen Container with Gold Framing & Glow -->
+      <div id="showreel-cinema-frame" class="max-w-6xl mx-auto rounded-xl overflow-hidden border border-gold-molten/40 bg-black shadow-gold-glow-lg relative group">
+        
+        <!-- Anamorphic Blue/Gold Edge Flare -->
+        <div class="anamorphic-flare w-full top-0 left-0"></div>
+
+        <!-- CinemaScope Aspect Ratio Frame (16:9 / 2.39:1) with Letterbox styling -->
+        <div id="showreel-screen-wrapper" class="relative w-full aspect-video sm:aspect-[2.39/1] overflow-hidden bg-black cinema-letterbox cursor-pointer">
+          <video 
+            id="showreel-video-element" 
+            class="w-full h-full object-contain bg-black" 
+            src="/assets/videos/reel_6_DAYbnEMITpG.mp4" 
+            poster="/assets/images/reels/reel_6_DAYbnEMITpG_thumb.jpg" 
+            playsinline 
+            preload="auto" 
+            data-cursor="PLAY/PAUSE"
+          ></video>
+
+          <!-- Golden Buffering Spinner -->
+          <div id="showreel-buffering-spinner" class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-30">
+            <div class="w-14 h-14 rounded-full border-2 border-gold-molten/30 border-t-gold-bright animate-spin"></div>
+          </div>
+
+          <!-- Theatrical Cinema Letterbox Bars (Top & Bottom) -->
+          <div class="absolute top-0 left-0 right-0 h-6 sm:h-10 bg-black/90 border-b border-white/5 pointer-events-none flex items-center justify-between px-6 font-mono text-[10px] text-soft-grey/60 tracking-widest z-10">
+            <span>AARYA BHUJADE CINEMATOGRAPHY</span>
+            <span id="showreel-sequence-label" class="text-gold-molten">REEL // ASHOKA: THE GEN-AI EPIC</span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-6 sm:h-10 bg-black/90 border-t border-white/5 pointer-events-none flex items-center justify-between px-6 font-mono text-[10px] text-soft-grey/60 tracking-widest z-10">
+            <span>OPTICAL: 35MM ANAMORPHIC T1.5</span>
+            <span class="text-gold-bright">COLOR: ACES 1.3 GOLD MASTER</span>
+          </div>
+
+          <!-- Central Play Button (when paused) -->
+          <button id="showreel-play-toggle" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-gold-molten/80 hover:bg-gold-bright text-black border border-gold-bright flex items-center justify-center shadow-gold-glow-lg transition-transform duration-300 hover:scale-110 z-20" data-cursor="TOGGLE">
+            <svg class="w-7 sm:w-8 h-7 sm:h-8 text-black translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Player Lower HUD Control Bar -->
+        <div class="p-4 sm:p-5 bg-[#0B0B0E] border-t border-white/10 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+          <!-- Timecode HUD -->
+          <div class="flex items-center gap-3">
+            <span class="text-soft-grey/60">TIMECODE:</span>
+            <span id="showreel-timecode" class="text-gold-bright font-bold tracking-widest text-sm sm:text-base">00:00:00:00</span>
+          </div>
+
+          <!-- Track Selector -->
+          <div class="flex items-center gap-2 text-soft-grey">
+            <label for="showreel-track-select" class="text-gold-molten text-[10px] tracking-wider hidden sm:inline">TRACK:</label>
+            <select id="showreel-track-select" class="bg-black/80 border border-white/20 text-white rounded px-2.5 py-1 text-[11px] focus:outline-none focus:border-gold-molten cursor-pointer">
+              <option value="/assets/videos/reel_6_DAYbnEMITpG.mp4" selected>Ashoka: Gen-AI Epic (118s Widescreen)</option>
+              <option value="/assets/videos/reel_3_DR7HSyHE4gY.mp4">Stranger Things Mind Flayer VFX (40s)</option>
+              <option value="/assets/videos/reel_4_DNwuSMfYnr7.mp4">Swastik Stories: Ganesh Campaign (54s)</option>
+              <option value="/assets/videos/reel_5_DB90UpYo5R4.mp4">Ladakh High-Altitude Travel (21s)</option>
+              <option value="/assets/videos/reel_2_DT4sIS7iJXy.mp4">Pure Souls Narrative (47s)</option>
+              <option value="/assets/videos/reel_11_C2KYZ2wsWEc.mp4">Sunburn Goa EDM Festival (31s)</option>
+              <option value="/assets/videos/reel_12_C2Ar8eDS3Lp.mp4">IAF Aerial Spectacle Mumbai (26s)</option>
+            </select>
+          </div>
+
+          <!-- Controls: Sound, Dim Lights & CTA -->
+          <div class="flex items-center gap-3">
+            <button id="showreel-video-sound" class="px-3 py-1.5 rounded border border-white/10 hover:border-gold-molten/60 text-soft-grey hover:text-gold-bright transition-colors flex items-center gap-1.5 text-[11px]" title="Toggle Showreel Audio">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/>
+              </svg>
+              <span>SOUND: MUTED</span>
+            </button>
+            <button id="showreel-dim-lights" class="px-3 py-1.5 rounded border border-white/10 hover:border-gold-molten/60 text-soft-grey hover:text-white transition-colors flex items-center gap-1.5 text-[11px]" title="Dim ambient website lighting">
+              <svg class="w-3.5 h-3.5 text-gold-molten" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+              </svg>
+              <span>DIM LIGHTS</span>
+            </button>
+            <a href="#contact" class="px-4 py-1.5 rounded bg-gold-molten hover:bg-gold-bright text-black font-semibold transition-colors text-[11px]">
+              CONTACT AARYA
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PORTFOLIO / WORK SECTION ("SELECTED WORKS") -->
+    <section id="works" class="relative py-28 px-6 md:px-12 bg-cinema-black border-b border-white/5">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Header & Filter Tabs -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <div class="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-gold-molten uppercase mb-2">
+              <span class="w-2 h-2 rounded-full bg-gold-bright"></span>
+              CURATED ARCHIVE // 2025–2026
+            </div>
+            <h2 class="font-cinematic text-4xl sm:text-6xl md:text-7xl tracking-wider text-white text-gold-metallic">
+              SELECTED WORKS
+            </h2>
+          </div>
+
+          <!-- Category Filter Tabs in Gold Caps -->
+          <div class="flex flex-wrap items-center gap-2 font-mono text-xs uppercase tracking-widest">
+            <button class="filter-tab px-4 py-2 rounded-sm border border-gold-bright bg-gold-molten text-black font-semibold transition-all duration-300" data-filter="all">
+              ALL
+            </button>
+            <button class="filter-tab px-4 py-2 rounded-sm border border-white/10 text-soft-grey hover:border-gold-molten/40 hover:text-white transition-all duration-300" data-filter="films">
+              FILMS
+            </button>
+            <button class="filter-tab px-4 py-2 rounded-sm border border-white/10 text-soft-grey hover:border-gold-molten/40 hover:text-white transition-all duration-300" data-filter="music_films">
+              MUSIC FILMS
+            </button>
+            <button class="filter-tab px-4 py-2 rounded-sm border border-white/10 text-soft-grey hover:border-gold-molten/40 hover:text-white transition-all duration-300" data-filter="ads">
+              COMMERCIALS
+            </button>
+            <button class="filter-tab px-4 py-2 rounded-sm border border-white/10 text-soft-grey hover:border-gold-molten/40 hover:text-white transition-all duration-300" data-filter="vfx">
+              VFX SHOTS
+            </button>
+            <button class="filter-tab px-4 py-2 rounded-sm border border-white/10 text-soft-grey hover:border-gold-molten/40 hover:text-white transition-all duration-300" data-filter="stills">
+              MATTE PAINTS
+            </button>
+          </div>
+        </div>
+
+        <!-- Cinema-Spotlight Grid Container -->
+        <div id="works-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Dynamically populated via main.js with movie poster styling & spotlight effect -->
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- INSTAGRAM REELS SECTION ("DIRECTOR'S REELS") -->
+    <section id="reels" class="relative py-28 px-6 md:px-12 bg-[#07070A] border-b border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <div class="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-gold-molten uppercase mb-2">
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+              INSTAGRAM REELS ARCHIVE // @aarya_x_apertures
+            </div>
+            <h2 class="font-cinematic text-4xl sm:text-6xl md:text-7xl tracking-wider text-white text-gold-metallic">
+              DIRECTOR'S REELS
+            </h2>
+            <p class="text-soft-grey font-light text-sm sm:text-base mt-2 max-w-2xl">
+              16 authentic vertical films, commercial brand campaigns (Glamirk, Mahindra Veero, Star Pravah, Swastik), generative AI VFX, high-altitude expeditions, and street cinematography directed by Aarya Bhujade. Hover to preview or click to open full theatrical playback.
+            </p>
+          </div>
+
+          <a 
+            href="https://www.instagram.com/aarya_x_apertures/" 
+            target="_blank" 
+            rel="noopener"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded border border-gold-molten/50 bg-black/60 hover:bg-gold-molten hover:text-black text-gold-bright font-mono text-xs tracking-wider uppercase transition-all duration-300 shadow-gold-glow hover:scale-105"
+            data-cursor="INSTAGRAM"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>@AARYA_X_APERTURES</span>
+          </a>
+        </div>
+
+        <!-- 16-Reels Grid Container -->
+        <div id="instagram-reels-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          <!-- Dynamically populated via main.js from ALL_INSTAGRAM_REELS -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- STATIC COMIC CAROUSEL DECK ("THE COMIC CHRONICLES") -->
+    <section id="comics" class="relative py-28 px-6 md:px-12 bg-[#050507] border-b border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <div class="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-gold-molten uppercase mb-2">
+              <span class="w-2 h-2 rounded-full bg-gold-bright"></span>
+              STATIC CAROUSEL DECK // SACRED & PHILOSOPHICAL LORE
+            </div>
+            <h2 class="font-cinematic text-4xl sm:text-6xl md:text-7xl tracking-wider text-white text-gold-metallic">
+              THE COMIC CHRONICLES
+            </h2>
+            <p class="text-soft-grey font-light text-sm sm:text-base mt-2 max-w-2xl">
+              Episodic graphic narratives, sacred mythological lore, and visual philosophical essays crafted frame-by-frame with generative AI. Click any series to open the interactive full-screen carousel reader with original captions.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <span class="px-3.5 py-1.5 rounded bg-black/60 border border-gold-molten/40 font-mono text-xs text-gold-bright tracking-wider">
+              6 COMPLETE SERIES // 50 PANELS
+            </span>
+          </div>
+        </div>
+
+        <!-- 6 Comics Grid Container -->
+        <div id="comics-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <!-- Dynamically populated via main.js from COMIC_CAROUSELS -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TOOLS & EXPERTISE SECTION ("THE ARSENAL") -->
+    <section id="arsenal" class="relative py-28 px-6 md:px-12 bg-cinema-black border-b border-white/5">
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="inline-flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-gold-molten uppercase">
+            <span class="w-2 h-2 rounded-full bg-gold-bright"></span>
+            SYNTHETIC DIRECTING & POST-PRODUCTION STACK
+          </div>
+          <h2 class="font-cinematic text-4xl sm:text-6xl md:text-7xl tracking-wider text-white text-gold-metallic">
+            THE ARSENAL
+          </h2>
+          <p class="text-soft-grey font-light text-base sm:text-lg">
+            A state-of-the-art suite of node-based generative architectures, kinetic video models, and cinematic compositing software.
+          </p>
+        </div>
+
+        <!-- Sleek Dark Glassmorphic Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Tool 1: Kling AI -->
+          <div class="glass-card group p-6 rounded-lg transition-all duration-300 hover:border-gold-molten/60 hover:-translate-y-1 shadow-sm hover:shadow-gold-glow relative" data-cursor="KLING">
+            <div class="w-12 h-12 rounded bg-black/60 border border-gold-molten/30 flex items-center justify-center mb-5 group-hover:border-gold-bright group-hover:bg-gold-molten/10 transition-colors">
+              <svg class="w-6 h-6 text-gold-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="font-cinematic text-2xl tracking-wider text-white group-hover:text-gold-bright transition-colors mb-1">
+              KLING AI
+            </h3>
+            <p class="text-xs text-soft-grey/90 leading-relaxed mb-4">
+              Cinematic video generation, high-frame temporal coherence, and complex kinetic physical simulation.
+            </p>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-gold-molten/80 gold-draw-line">
+              <span>PHYSICS & KINETICS</span>
+              <span>1080P // 4K</span>
+            </div>
+          </div>
+
+          <!-- Tool 2: Seedance -->
+          <div class="glass-card group p-6 rounded-lg transition-all duration-300 hover:border-gold-molten/60 hover:-translate-y-1 shadow-sm hover:shadow-gold-glow relative" data-cursor="SEEDANCE">
+            <div class="w-12 h-12 rounded bg-black/60 border border-gold-molten/30 flex items-center justify-center mb-5 group-hover:border-gold-bright group-hover:bg-gold-molten/10 transition-colors">
+              <svg class="w-6 h-6 text-gold-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+              </svg>
+            </div>
+            <h3 class="font-cinematic text-2xl tracking-wider text-white group-hover:text-gold-bright transition-colors mb-1">
+              SEEDANCE
+            </h3>
+            <p class="text-xs text-soft-grey/90 leading-relaxed mb-4">
+              Precision video generation, multi-seed shot correction, and continuous character permanence across takes.
+            </p>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-gold-molten/80 gold-draw-line">
+              <span>SHOT RE-SEEDING</span>
+              <span>PERMANENCE</span>
+            </div>
+          </div>
+
+          <!-- Tool 3: Minimax / Hailuo -->
+          <div class="glass-card group p-6 rounded-lg transition-all duration-300 hover:border-gold-molten/60 hover:-translate-y-1 shadow-sm hover:shadow-gold-glow relative" data-cursor="MINIMAX">
+            <div class="w-12 h-12 rounded bg-black/60 border border-gold-molten/30 flex items-center justify-center mb-5 group-hover:border-gold-bright group-hover:bg-gold-molten/10 transition-colors">
+              <svg class="w-6 h-6 text-gold-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="font-cinematic text-2xl tracking-wider text-white group-hover:text-gold-bright transition-colors mb-1">
+              MINIMAX / HAILUO
+            </h3>
+            <p class="text-xs text-soft-grey/90 leading-relaxed mb-4">
+              Hyper-realistic human micro-expressions, emotive performance direction, and dynamic dolly camera motions.
+            </p>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-gold-molten/80 gold-draw-line">
+              <span>EMOTIVE ACTING</span>
+              <span>CINEMATIC MOVES</span>
+            </div>
+          </div>
+
+          <!-- Tool 4: ComfyUI -->
+          <div class="glass-card group p-6 rounded-lg transition-all duration-300 hover:border-gold-molten/60 hover:-translate-y-1 shadow-sm hover:shadow-gold-glow relative" data-cursor="COMFYUI">
+            <div class="w-12 h-12 rounded bg-black/60 border border-gold-molten/30 flex items-center justify-center mb-5 group-hover:border-gold-bright group-hover:bg-gold-molten/10 transition-colors">
+              <svg class="w-6 h-6 text-gold-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="font-cinematic text-2xl tracking-wider text-white group-hover:text-gold-bright transition-colors mb-1">
+              COMFYUI
+            </h3>
+            <p class="text-xs text-soft-grey/90 leading-relaxed mb-4">
+              Advanced node-based image and video synthesis, custom ControlNets, IP-Adapters, and multi-pass compositing.
+            </p>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-gold-molten/80 gold-draw-line">
+              <span>NODE PIPELINES</span>
+              <span>CONTROLNET</span>
+            </div>
+          </div>
+
+          <!-- Tool 5: Advanced VFX -->
+          <div class="glass-card group p-6 rounded-lg transition-all duration-300 hover:border-gold-molten/60 hover:-translate-y-1 shadow-sm hover:shadow-gold-glow relative" data-cursor="VFX">
+            <div class="w-12 h-12 rounded bg-black/60 border border-gold-molten/30 flex items-center justify-center mb-5 group-hover:border-gold-bright group-hover:bg-gold-molten/10 transition-colors">
+              <svg class="w-6 h-6 text-gold-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+              </svg>
+            </div>
+            <h3 class="font-cinematic text-2xl tracking-wider text-white group-hover:text-gold-bright transition-colors mb-1">
+              ADVANCED VFX
+            </h3>
+            <p class="text-xs text-soft-grey/90 leading-relaxed mb-4">
+              Deep plate cleanup, 3D matchmoving, neural inpainting, volumetric smoke/rain, and Davinci ACES color grading.
+            </p>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-gold-molten/80 gold-draw-line">
+              <span>COMPOSITING</span>
+              <span>MATCHMOVE</span>
+            </div>
+          </div>
+
+          <!-- Tool 6: Matte Painting -->
+          <div class="glass-card group p-6 rounded-lg transition-all duration-300 hover:border-gold-molten/60 hover:-translate-y-1 shadow-sm hover:shadow-gold-glow relative" data-cursor="MATTE">
+            <div class="w-12 h-12 rounded bg-black/60 border border-gold-molten/30 flex items-center justify-center mb-5 group-hover:border-gold-bright group-hover:bg-gold-molten/10 transition-colors">
+              <svg class="w-6 h-6 text-gold-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="font-cinematic text-2xl tracking-wider text-white group-hover:text-gold-bright transition-colors mb-1">
+              MATTE PAINTING
+            </h3>
+            <p class="text-xs text-soft-grey/90 leading-relaxed mb-4">
+              Digital environments, 2.5D set extensions, monumental architecture, and LED virtual production stage plates.
+            </p>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-gold-molten/80 gold-draw-line">
+              <span>VIRTUAL PRODUCTION</span>
+              <span>8K PLATES</span>
+            </div>
+          </div>
+
+          <!-- Tool 7: AI Image Generation -->
+          <div class="glass-card group p-6 rounded-lg transition-all duration-300 hover:border-gold-molten/60 hover:-translate-y-1 shadow-sm hover:shadow-gold-glow relative" data-cursor="STILLS">
+            <div class="w-12 h-12 rounded bg-black/60 border border-gold-molten/30 flex items-center justify-center mb-5 group-hover:border-gold-bright group-hover:bg-gold-molten/10 transition-colors">
+              <svg class="w-6 h-6 text-gold-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+              </svg>
+            </div>
+            <h3 class="font-cinematic text-2xl tracking-wider text-white group-hover:text-gold-bright transition-colors mb-1">
+              AI IMAGE GENERATION
+            </h3>
+            <p class="text-xs text-soft-grey/90 leading-relaxed mb-4">
+              Master keyframing, Midjourney v6 / Flux.1 prompt architecture, cinematic concept art, and theatrical poster design.
+            </p>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-gold-molten/80 gold-draw-line">
+              <span>KEYFRAMES</span>
+              <span>POSTER ART</span>
+            </div>
+          </div>
+
+          <!-- Tool 8: AI Video Generation -->
+          <div class="glass-card group p-6 rounded-lg transition-all duration-300 hover:border-gold-molten/60 hover:-translate-y-1 shadow-sm hover:shadow-gold-glow relative" data-cursor="VIDEO">
+            <div class="w-12 h-12 rounded bg-black/60 border border-gold-molten/30 flex items-center justify-center mb-5 group-hover:border-gold-bright group-hover:bg-gold-molten/10 transition-colors">
+              <svg class="w-6 h-6 text-gold-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/>
+              </svg>
+            </div>
+            <h3 class="font-cinematic text-2xl tracking-wider text-white group-hover:text-gold-bright transition-colors mb-1">
+              AI VIDEO GENERATION
+            </h3>
+            <p class="text-xs text-soft-grey/90 leading-relaxed mb-4">
+              Image-to-video, video-to-video restyling, motion brush choreography, and temporal resolution upscaling.
+            </p>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-gold-molten/80 gold-draw-line">
+              <span>I2V & V2V</span>
+              <span>MOTION BRUSH</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CAREER TIMELINE & PRODUCTION CREDITS (FROM RESUME) -->
+    <section id="experience" class="relative py-28 px-6 md:px-12 bg-gradient-to-b from-cinema-black via-steel-dark to-cinema-black border-b border-white/5">
+      <!-- Atmospheric Cyber Glow -->
+      <div class="absolute top-1/4 right-0 w-96 h-96 bg-cyber-glow/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto relative z-10 space-y-16">
+        
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-gold-molten uppercase mb-2">
+              <span class="w-2 h-2 rounded-full bg-gold-bright"></span>
+              PRODUCTION CREDITS & PROFESSIONAL RECORD
+            </div>
+            <h2 class="font-cinematic text-4xl sm:text-6xl md:text-7xl tracking-wider text-white text-gold-metallic">
+              EXPERIENCE & CREDITS
+            </h2>
+          </div>
+          <div class="font-mono text-xs text-soft-grey/80 flex items-center gap-2">
+            <a href="/assets/aarya_bhujade_resume.pdf" download="Aarya_Bhujade_Resume.pdf" class="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-gold-molten/50 bg-black/60 text-gold-bright hover:bg-gold-molten hover:text-black transition-colors">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              <span>OFFICIAL RESUME SLATE (PDF)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Experience Timeline Cards -->
+        <div class="space-y-8">
+          
+          <!-- Role 1: Swastik Stories -->
+          <div class="glass-card p-6 sm:p-8 rounded-xl border border-white/10 hover:border-gold-molten/60 transition-all duration-300 relative group">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-4">
+              <div>
+                <span class="font-mono text-xs tracking-widest text-gold-bright uppercase bg-gold-molten/10 px-2.5 py-0.5 rounded border border-gold-molten/30 inline-block mb-2">
+                  PRODUCTION STUDIO
+                </span>
+                <h3 class="font-cinematic text-3xl sm:text-4xl tracking-wider text-white group-hover:text-gold-bright transition-colors">
+                  SWASTIK STORIES
+                </h3>
+                <div class="font-mono text-sm text-soft-grey mt-0.5">
+                  AI Artist | Visual Storyteller | Graphic & Motion Designer
+                </div>
+              </div>
+              <div class="font-mono text-xs sm:text-sm text-gold-molten tracking-widest uppercase">
+                2024 – 2025
+              </div>
+            </div>
+
+            <!-- Accomplishment Bullet Points -->
+            <ul class="space-y-2.5 text-sm text-soft-grey font-light leading-relaxed border-t border-white/5 pt-4">
+              <li class="flex items-start gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-bright mt-2 shrink-0"></span>
+                <span>Created AI-generated visuals, concept art, and characters for creative and promotional projects.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-bright mt-2 shrink-0"></span>
+                <span>Designed original logos, visual identities, and branding assets for promotional campaigns.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-bright mt-2 shrink-0"></span>
+                <span>Developed complex character designs using cutting-edge AI tools and digital illustration techniques.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-bright mt-2 shrink-0"></span>
+                <span>Executed visual storytelling to enhance narratives for high-engagement videos, promos, and digital content.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-bright mt-2 shrink-0"></span>
+                <span>Produced kinetic motion graphics to animate concepts, characters, and visual elements.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-bright mt-2 shrink-0"></span>
+                <span>Utilized advanced generative AI tools for image generation, high-res enhancement, and proprietary creative workflows.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-bright mt-2 shrink-0"></span>
+                <span>Collaborated with cross-functional production and creative directors to deliver high-quality assets within tight deadlines.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Role 2: VsnapU -->
+          <div class="glass-card p-6 sm:p-8 rounded-xl border border-white/10 hover:border-gold-molten/60 transition-all duration-300 relative group">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-4">
+              <div>
+                <span class="font-mono text-xs tracking-widest text-cyan-400 uppercase bg-cyan-500/10 px-2.5 py-0.5 rounded border border-cyan-500/30 inline-block mb-2">
+                  COMMERCIAL & CONTENT
+                </span>
+                <h3 class="font-cinematic text-3xl sm:text-4xl tracking-wider text-white group-hover:text-gold-bright transition-colors">
+                  VSNAPU
+                </h3>
+                <div class="font-mono text-sm text-soft-grey mt-0.5">
+                  Professional Photographer & Content Creator
+                </div>
+              </div>
+              <div class="font-mono text-xs sm:text-sm text-gold-molten tracking-widest uppercase">
+                2022 – 2024
+              </div>
+            </div>
+
+            <ul class="space-y-2.5 text-sm text-soft-grey font-light leading-relaxed border-t border-white/5 pt-4">
+              <li class="flex items-start gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-bright mt-2 shrink-0"></span>
+                <span>Created premium visual content and photographic campaigns for leading brands and luxury hospitality clients.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-bright mt-2 shrink-0"></span>
+                <span>Specialized in high-fashion, destination travel, and interior/architectural photography.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-bright mt-2 shrink-0"></span>
+                <span>Executed comprehensive on-location commercial shoots across <strong>Ladakh, Andaman, Goa, Chennai, and Mumbai</strong>.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-bright mt-2 shrink-0"></span>
+                <span>Delivered high-end imagery optimized for multi-channel marketing, theatrical digital platforms, and brand promotions.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Role 3: RAS Media -->
+          <div class="glass-card p-6 sm:p-8 rounded-xl border border-white/10 hover:border-gold-molten/60 transition-all duration-300 relative group">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-4">
+              <div>
+                <span class="font-mono text-xs tracking-widest text-orange-400 uppercase bg-orange-500/10 px-2.5 py-0.5 rounded border border-orange-500/30 inline-block mb-2">
+                  FASHION & STUDIO
+                </span>
+                <h3 class="font-cinematic text-3xl sm:text-4xl tracking-wider text-white group-hover:text-gold-bright transition-colors">
+                  RAS MEDIA
+                </h3>
+                <div class="font-mono text-sm text-soft-grey mt-0.5">
+                  Fashion & E-commerce Photographer | Photo Editor
+                </div>
+              </div>
+              <div class="font-mono text-xs sm:text-sm text-gold-molten tracking-widest uppercase">
+                2021 – 2022
+              </div>
+            </div>
+
+            <ul class="space-y-2.5 text-sm text-soft-grey font-light leading-relaxed border-t border-white/5 pt-4">
+              <li class="flex items-start gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-bright mt-2 shrink-0"></span>
+                <span>Directed studio photoshoots and post-production retouching for high-volume fashion and e-commerce campaigns.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-bright mt-2 shrink-0"></span>
+                <span>Mastered light setup, color grading, skin retouching, and catalog visual consistency.</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- EDUCATION & CORE SKILLS GRID -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-8">
+          
+          <!-- Education Column -->
+          <div class="glass-card p-6 sm:p-8 rounded-xl border border-white/10 space-y-6">
+            <div class="flex items-center gap-2 font-mono text-xs text-gold-bright uppercase tracking-widest">
+              <svg class="w-4 h-4 text-gold-molten" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+              </svg>
+              <span>ACADEMIC CREDENTIALS & DEGREES</span>
+            </div>
+
+            <!-- Degree 1: ADVFX+ -->
+            <div class="border-l-2 border-gold-bright pl-4 space-y-1">
+              <div class="flex items-center justify-between">
+                <h4 class="font-cinematic text-2xl text-white tracking-wider">ADVFX+</h4>
+                <span class="font-mono text-xs text-gold-molten">2023 – 2025</span>
+              </div>
+              <p class="font-mono text-xs text-soft-grey">Maac Academy, Andheri, Mumbai</p>
+              <p class="text-xs text-soft-grey/80 leading-relaxed pt-1">
+                Advanced VFX & 3D compositing, dynamic simulations, camera tracking, roto, and film post-production pipelines.
+              </p>
+            </div>
+
+            <!-- Degree 2: Diploma in Photography -->
+            <div class="border-l-2 border-gold-bright pl-4 space-y-1 pt-2">
+              <div class="flex items-center justify-between">
+                <h4 class="font-cinematic text-2xl text-white tracking-wider">DIPLOMA IN PHOTOGRAPHY</h4>
+                <span class="font-mono text-xs text-gold-molten">2021 – 2022</span>
+              </div>
+              <p class="font-mono text-xs text-soft-grey">AAFT University, Raipur, Chhattisgarh</p>
+              <p class="text-xs text-soft-grey/80 leading-relaxed pt-1">
+                Professional cinematography optics, studio lighting, visual framing, color theory, and photographic storytelling.
+              </p>
+            </div>
+          </div>
+
+          <!-- Core Skills Column from Resume -->
+          <div class="glass-card p-6 sm:p-8 rounded-xl border border-white/10 space-y-6">
+            <div class="flex items-center gap-2 font-mono text-xs text-gold-bright uppercase tracking-widest">
+              <svg class="w-4 h-4 text-gold-molten" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+              </svg>
+              <span>CORE SPECIALIZATIONS</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="p-3 rounded bg-black/50 border border-white/5 font-mono text-xs text-white flex items-center gap-2">
+                <span class="text-gold-bright">✦</span>
+                <span>AI Art & Image Generation</span>
+              </div>
+              <div class="p-3 rounded bg-black/50 border border-white/5 font-mono text-xs text-white flex items-center gap-2">
+                <span class="text-gold-bright">✦</span>
+                <span>Prompt Engineering for AI Visuals</span>
+              </div>
+              <div class="p-3 rounded bg-black/50 border border-white/5 font-mono text-xs text-white flex items-center gap-2">
+                <span class="text-gold-bright">✦</span>
+                <span>Concept Art & Character Design</span>
+              </div>
+              <div class="p-3 rounded bg-black/50 border border-white/5 font-mono text-xs text-white flex items-center gap-2">
+                <span class="text-gold-bright">✦</span>
+                <span>Visual Storytelling & Direction</span>
+              </div>
+              <div class="p-3 rounded bg-black/50 border border-white/5 font-mono text-xs text-white flex items-center gap-2">
+                <span class="text-gold-bright">✦</span>
+                <span>Graphic & Motion Graphic Artist</span>
+              </div>
+              <div class="p-3 rounded bg-black/50 border border-white/5 font-mono text-xs text-white flex items-center gap-2">
+                <span class="text-gold-bright">✦</span>
+                <span>Professional Photographer</span>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-lg bg-gold-molten/10 border border-gold-molten/30 flex items-center justify-between font-mono text-xs text-gold-bright">
+              <span>LOCATION BASE: MUMBAI, INDIA</span>
+              <span class="text-white/60">OPEN FOR GLOBAL COMMISSIONS</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PROCESS SECTION (4-STEP 35MM FILM STRIP) -->
+    <section id="pipeline" class="relative py-28 px-6 md:px-12 bg-cinema-black border-b border-white/5">
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="inline-flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-gold-molten uppercase">
+            <span class="w-2 h-2 rounded-full bg-gold-bright"></span>
+            FROM LATENT SPACE TO CINEMA SCREEN
+          </div>
+          <h2 class="font-cinematic text-4xl sm:text-6xl md:text-7xl tracking-wider text-white text-gold-metallic">
+            THE PRODUCTION PIPELINE
+          </h2>
+          <p class="text-soft-grey font-light text-base sm:text-lg">
+            A battle-tested 4-stage methodology ensuring shot permanence, artistic intent, and cinematic polish.
+          </p>
+        </div>
+
+        <!-- 35mm Film-Strip Graphic Frame -->
+        <div class="film-sprocket-border rounded-xl p-4 sm:p-8 bg-[#07070A] border border-gold-molten/30 shadow-gold-glow">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Frame 01: Concept -->
+            <div class="p-6 rounded bg-black/70 border border-white/10 relative group hover:border-gold-molten/60 transition-all duration-300">
+              <div class="flex items-center justify-between mb-4 font-mono text-xs">
+                <span class="text-gold-bright font-bold">FRAME 01</span>
+                <span class="text-soft-grey/60">SCENE 01 // TAKE 01</span>
+              </div>
+              <h3 class="font-cinematic text-3xl tracking-wider text-white group-hover:text-gold-bright transition-colors mb-2">
+                01 // CONCEPT
+              </h3>
+              <p class="text-xs text-soft-grey/90 leading-relaxed mb-4">
+                Narrative beat boards, story architecture, latent moodboards, and script-to-prompt decomposition.
+              </p>
+              <div class="pt-3 border-t border-white/10 font-mono text-[10px] text-gold-molten/90">
+                OUTPUT: NARRATIVE DIRECTIVE
+              </div>
+            </div>
+
+            <!-- Frame 02: Keyframes -->
+            <div class="p-6 rounded bg-black/70 border border-white/10 relative group hover:border-gold-molten/60 transition-all duration-300">
+              <div class="flex items-center justify-between mb-4 font-mono text-xs">
+                <span class="text-gold-bright font-bold">FRAME 02</span>
+                <span class="text-soft-grey/60">LIGHTING // CAM</span>
+              </div>
+              <h3 class="font-cinematic text-3xl tracking-wider text-white group-hover:text-gold-bright transition-colors mb-2">
+                02 // KEYFRAMES
+              </h3>
+              <p class="text-xs text-soft-grey/90 leading-relaxed mb-4">
+                Master high-res latent art generation, character identity lock, lens focal length, and anamorphic lighting cues.
+              </p>
+              <div class="pt-3 border-t border-white/10 font-mono text-[10px] text-gold-molten/90">
+                OUTPUT: LOCKED MASTER PLATES
+              </div>
+            </div>
+
+            <!-- Frame 03: Generation -->
+            <div class="p-6 rounded bg-black/70 border border-white/10 relative group hover:border-gold-molten/60 transition-all duration-300">
+              <div class="flex items-center justify-between mb-4 font-mono text-xs">
+                <span class="text-gold-bright font-bold">FRAME 03</span>
+                <span class="text-soft-grey/60">KINETICS // SEEDS</span>
+              </div>
+              <h3 class="font-cinematic text-3xl tracking-wider text-white group-hover:text-gold-bright transition-colors mb-2">
+                03 // GENERATION
+              </h3>
+              <p class="text-xs text-soft-grey/90 leading-relaxed mb-4">
+                Multi-model video synthesis with Kling and Seedance, motion vector steering, physics simulation, and temporal coherence.
+              </p>
+              <div class="pt-3 border-t border-white/10 font-mono text-[10px] text-gold-molten/90">
+                OUTPUT: 24FPS DCI VIDEO PASS
+              </div>
+            </div>
+
+            <!-- Frame 04: VFX Polish -->
+            <div class="p-6 rounded bg-black/70 border border-white/10 relative group hover:border-gold-molten/60 transition-all duration-300">
+              <div class="flex items-center justify-between mb-4 font-mono text-xs">
+                <span class="text-gold-bright font-bold">FRAME 04</span>
+                <span class="text-soft-grey/60">ACES // 35MM</span>
+              </div>
+              <h3 class="font-cinematic text-3xl tracking-wider text-white group-hover:text-gold-bright transition-colors mb-2">
+                04 // VFX POLISH
+              </h3>
+              <p class="text-xs text-soft-grey/90 leading-relaxed mb-4">
+                Spatial neural upscaling, plate compositing, temporal de-flicker, 35mm physical film grain scan, and DaVinci color grading.
+              </p>
+              <div class="pt-3 border-t border-white/10 font-mono text-[10px] text-gold-molten/90">
+                OUTPUT: THEATRICAL 4K MASTER
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ABOUT SECTION (STEEL-BLUE NIGHT ATMOSPHERE WITH AUTHENTIC RESUME BIO & PORTRAIT) -->
+    <section id="about" class="relative py-28 px-6 md:px-12 bg-gradient-to-b from-steel-dark via-steel-blue to-cinema-black border-b border-white/5">
+      <!-- Ambient Cyber Teal Glow -->
+      <div class="absolute top-1/3 left-0 w-96 h-96 bg-cyber-glow/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+        
+        <!-- Left: Dual Portrait Display (Authentic Resume Portrait + Cinematic Grading Console) -->
+        <div class="lg:col-span-5 relative space-y-6" data-cursor="AARYA">
+          <!-- Anamorphic Lens Flare Glow behind portrait -->
+          <div class="anamorphic-flare-blue w-full top-1/4 left-0"></div>
+
+          <!-- Main Authentic Portrait Card (From Resume) -->
+          <div class="relative rounded-xl overflow-hidden border border-gold-molten/60 bg-black/80 shadow-gold-glow p-3">
+            <div class="relative aspect-[4/5] overflow-hidden rounded-lg bg-[#07070A]">
+              <img 
+                src="/assets/images/aarya_portrait_real.jpg" 
+                alt="Aarya Bhujade — Real Portrait" 
+                class="w-full h-full object-cover object-center filter contrast-110 group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20"></div>
+
+              <!-- Corner Registration Marks -->
+              <div class="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-gold-bright"></div>
+              <div class="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-gold-bright"></div>
+              <div class="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-gold-bright"></div>
+              <div class="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-gold-bright"></div>
+
+              <!-- Portrait Overlay Tag -->
+              <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] text-white bg-black/80 px-3 py-1.5 rounded border border-white/10">
+                <span class="text-gold-bright">AARYA BHUJADE</span>
+                <span class="text-soft-grey/70">MUMBAI, INDIA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions under portrait -->
+          <div class="flex items-center gap-3 font-mono text-xs">
+            <a href="/assets/aarya_bhujade_resume.pdf" download="Aarya_Bhujade_Resume.pdf" class="flex-1 py-2.5 rounded bg-gold-molten hover:bg-gold-bright text-black font-semibold text-center uppercase tracking-wider transition-colors shadow-sm">
+              DOWNLOAD CV (PDF)
+            </a>
+            <a href="https://wa.me/919130636170" target="_blank" rel="noopener" class="px-4 py-2.5 rounded border border-green-500/50 hover:bg-green-500 hover:text-black text-green-400 font-semibold text-center transition-colors flex items-center gap-1.5" title="Chat on WhatsApp">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+              </svg>
+              <span>WHATSAPP</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Authentic Resume Bio & Cinematic Philosophy -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-gold-molten uppercase">
+            <span class="w-2 h-2 rounded-full bg-gold-bright"></span>
+            ABOUT AARYA BHUJADE
+          </div>
+
+          <h2 class="font-cinematic text-4xl sm:text-6xl tracking-wider text-white leading-tight">
+            TURNING ABSTRACT IDEAS INTO STRIKING, MEANINGFUL CINEMA.
+          </h2>
+
+          <!-- Authentic Resume Text -->
+          <div class="space-y-4 text-soft-grey font-light text-base sm:text-lg leading-relaxed">
+            <p>
+              I am an <strong class="text-white font-medium">AI Artist, Graphic Designer, and Visual Storyteller</strong> with a profound foundation in visual storytelling, creative framing, and powerful composition. My work blends pure imagination with bleeding-edge technology, harnessing advanced AI architectures and industry design software to transform abstract ideas into striking, evocative visuals.
+            </p>
+            <p>
+              I specialize in crafting futuristic, aesthetic, and detail-driven artworks driven by deep visualization skills and a relentless push for innovation. Whether it is AI-generated cinematic imagery, graphic layouts, kinetic motion design, or experimental digital art, I bring clarity, creativity, and emotion into every frame.
+            </p>
+          </div>
+
+          <!-- Credential Quotes -->
+          <blockquote class="p-5 rounded-lg border-l-2 border-gold-bright bg-black/40 text-white font-medium italic text-base sm:text-lg">
+            &ldquo;Whether it's AI-generated imagery, graphic layouts, or experimental digital art, I bring clarity, creativity, and emotion into every frame.&rdquo;
+          </blockquote>
+
+          <!-- Credentials & Milestones Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-white/10 font-mono">
+            <div class="space-y-1">
+              <div class="font-cinematic text-3xl sm:text-4xl text-gold-bright tracking-wider">ADVFX+</div>
+              <div class="text-[10px] uppercase text-soft-grey/80 tracking-widest">MAAC Mumbai</div>
+            </div>
+            <div class="space-y-1">
+              <div class="font-cinematic text-3xl sm:text-4xl text-gold-bright tracking-wider">AAFT</div>
+              <div class="text-[10px] uppercase text-soft-grey/80 tracking-widest">Photography Dip.</div>
+            </div>
+            <div class="space-y-1">
+              <div class="font-cinematic text-3xl sm:text-4xl text-gold-bright tracking-wider">5+</div>
+              <div class="text-[10px] uppercase text-soft-grey/80 tracking-widest">Shoot Expeditions</div>
+            </div>
+            <div class="space-y-1">
+              <div class="font-cinematic text-3xl sm:text-4xl text-gold-bright tracking-wider">100%</div>
+              <div class="text-[10px] uppercase text-soft-grey/80 tracking-widest">Visual Intent</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACT / FOOTER SECTION ("LET'S CREATE CINEMA.") -->
+    <section id="contact" class="relative py-28 px-6 md:px-12 bg-cinema-black overflow-hidden">
+      <!-- Live Golden Dust Particles in Footer -->
+      <canvas id="footer-particles-canvas" class="absolute inset-0 pointer-events-none z-10"></canvas>
+
+      <!-- Anamorphic Golden Beam behind Heading -->
+      <div class="anamorphic-flare w-3/4 max-w-4xl top-24 left-1/2 -translate-x-1/2 z-10"></div>
+
+      <div class="max-w-5xl mx-auto relative z-20 space-y-16">
+        
+        <!-- Big Statement Header -->
+        <div class="text-center space-y-4">
+          <div class="inline-flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-gold-molten uppercase">
+            <span class="w-2 h-2 rounded-full bg-gold-bright animate-ping"></span>
+            DIRECT COMMUNICATION CHANNEL
+          </div>
+          <h2 class="font-cinematic text-5xl sm:text-7xl md:text-8xl tracking-wider text-white text-gold-metallic">
+            LET'S CREATE CINEMA.
+          </h2>
+          <p class="max-w-xl mx-auto text-soft-grey text-base sm:text-lg font-light">
+            Available for AI films, visual storytelling, creative direction, commercial campaigns, motion graphics, and photography.
+          </p>
+        </div>
+
+        <!-- Contact Cards Matrix (Direct Phone, Email, Location, Resume) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto font-mono text-xs">
+          <!-- Phone Direct -->
+          <a href="tel:+919130636170" class="glass-card p-5 rounded-lg border border-white/10 hover:border-gold-molten/60 transition-colors flex items-center gap-3.5 group">
+            <div class="w-10 h-10 rounded bg-gold-molten/20 text-gold-bright flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-soft-grey/60 block text-[10px]">DIRECT PHONE</span>
+              <span class="text-white font-medium text-sm group-hover:text-gold-bright">+91 9130636170</span>
+            </div>
+          </a>
+
+          <!-- Email Direct -->
+          <a href="mailto:aarya.bhujade.123@gmail.com" class="glass-card p-5 rounded-lg border border-white/10 hover:border-gold-molten/60 transition-colors flex items-center gap-3.5 group">
+            <div class="w-10 h-10 rounded bg-gold-molten/20 text-gold-bright flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div class="truncate">
+              <span class="text-soft-grey/60 block text-[10px]">EMAIL ADDRESS</span>
+              <span class="text-white font-medium text-xs group-hover:text-gold-bright truncate block">aarya.bhujade.123@gmail.com</span>
+            </div>
+          </a>
+
+          <!-- Location -->
+          <div class="glass-card p-5 rounded-lg border border-white/10 flex items-center gap-3.5">
+            <div class="w-10 h-10 rounded bg-gold-molten/20 text-gold-bright flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-soft-grey/60 block text-[10px]">BASE LOCATION</span>
+              <span class="text-white font-medium text-sm">Mumbai, India</span>
+            </div>
+          </div>
+
+          <!-- Download Resume -->
+          <a href="/assets/aarya_bhujade_resume.pdf" download="Aarya_Bhujade_Resume.pdf" class="glass-card p-5 rounded-lg border border-gold-molten/40 hover:bg-gold-molten hover:text-black transition-all duration-300 flex items-center gap-3.5 group">
+            <div class="w-10 h-10 rounded bg-gold-molten text-black flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-soft-grey/60 group-hover:text-black/80 block text-[10px]">DOCUMENT</span>
+              <span class="text-gold-bright group-hover:text-black font-medium text-sm">Download CV</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Interactive Cinema Contact Form -->
+        <div class="glass-card max-w-3xl mx-auto p-8 sm:p-12 rounded-xl border border-white/10 shadow-gold-glow">
+          <form id="cinema-contact-form" class="space-y-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <!-- Name Field -->
+              <div class="relative">
+                <label for="form-name" class="block font-mono text-[11px] uppercase tracking-widest text-gold-molten mb-2">
+                  YOUR NAME / PRODUCTION STUDIO
+                </label>
+                <input 
+                  type="text" 
+                  id="form-name" 
+                  name="name" 
+                  required 
+                  placeholder="e.g. Swastik Stories / Production House" 
+                  class="w-full bg-transparent border-b border-white/20 focus:border-gold-bright py-2 text-white font-sans text-sm focus:outline-none transition-colors placeholder:text-soft-grey/30"
+                />
+              </div>
+
+              <!-- Email Field -->
+              <div class="relative">
+                <label for="form-email" class="block font-mono text-[11px] uppercase tracking-widest text-gold-molten mb-2">
+                  DIRECT TRANSMISSION (EMAIL)
+                </label>
+                <input 
+                  type="email" 
+                  id="form-email" 
+                  name="email" 
+                  required 
+                  placeholder="director@studio.com" 
+                  class="w-full bg-transparent border-b border-white/20 focus:border-gold-bright py-2 text-white font-sans text-sm focus:outline-none transition-colors placeholder:text-soft-grey/30"
+                />
+              </div>
+            </div>
+
+            <!-- Project Type Dropdown -->
+            <div class="relative">
+              <label for="form-project-type" class="block font-mono text-[11px] uppercase tracking-widest text-gold-molten mb-2">
+                PROJECT CLASSIFICATION
+              </label>
+              <select 
+                id="form-project-type" 
+                name="projectType" 
+                class="w-full bg-[#0B0B0E] border-b border-white/20 focus:border-gold-bright py-2 text-white font-sans text-sm focus:outline-none transition-colors cursor-pointer"
+              >
+                <option value="ai-art">AI Art & Image Generation Project</option>
+                <option value="ai-film">AI Film & Cinematic Video Direction</option>
+                <option value="concept-art">Concept Art & Character Design</option>
+                <option value="motion-graphics">Graphic & Motion Graphics Campaign</option>
+                <option value="photography">Professional Photography / On-Location Shoot</option>
+                <option value="vfx">Visual Effects & Compositing</option>
+              </select>
+            </div>
+
+            <!-- Message / Brief -->
+            <div class="relative">
+              <label for="form-message" class="block font-mono text-[11px] uppercase tracking-widest text-gold-molten mb-2">
+                CREATIVE BRIEF / TIMELINE / VISION
+              </label>
+              <textarea 
+                id="form-message" 
+                name="message" 
+                rows="4" 
+                required 
+                placeholder="Describe the project scope, character requirements, visual framing or mood..." 
+                class="w-full bg-transparent border-b border-white/20 focus:border-gold-bright py-2 text-white font-sans text-sm focus:outline-none transition-colors placeholder:text-soft-grey/30 resize-none"
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <span class="font-mono text-xs text-soft-grey/60">AARYA BHUJADE REPLIES WITHIN 24 HOURS</span>
+              <button 
+                type="submit" 
+                class="w-full sm:w-auto px-10 py-4 rounded bg-gradient-to-r from-gold-molten to-gold-bright hover:from-gold-bright hover:to-gold-molten text-black font-mono text-xs tracking-[0.25em] uppercase font-bold transition-all duration-300 shadow-gold-glow hover:scale-105"
+                data-cursor="TRANSMIT"
+              >
+                TRANSMIT BRIEF ➔
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Direct Social & Channels Grid -->
+        <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-6">
+            <!-- Email Direct -->
+            <a href="mailto:aarya.bhujade.123@gmail.com" class="flex items-center gap-2 font-mono text-xs text-soft-grey hover:text-gold-bright transition-colors" data-cursor="EMAIL">
+              <svg class="w-4 h-4 text-gold-molten" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <span>aarya.bhujade.123@gmail.com</span>
+            </a>
+
+            <!-- Phone Direct -->
+            <a href="tel:+919130636170" class="flex items-center gap-2 font-mono text-xs text-soft-grey hover:text-gold-bright transition-colors" data-cursor="CALL">
+              <svg class="w-4 h-4 text-gold-molten" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              <span>+91 9130636170</span>
+            </a>
+          </div>
+
+          <!-- Social Icon Links in Thin Gold Outline -->
+          <div class="flex items-center gap-4">
+            <!-- WhatsApp Direct -->
+            <a href="https://wa.me/919130636170" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-white/10 hover:border-green-400 bg-black/40 flex items-center justify-center text-soft-grey hover:text-green-400 transition-all duration-300" title="WhatsApp Chat" data-cursor="WA">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/aarya_x_apertures/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-white/10 hover:border-gold-bright bg-black/40 flex items-center justify-center text-soft-grey hover:text-gold-bright transition-all duration-300" title="Instagram @aarya_x_apertures" data-cursor="IG">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke-width="2"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2"/>
+              </svg>
+            </a>
+
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-white/10 hover:border-gold-bright bg-black/40 flex items-center justify-center text-soft-grey hover:text-gold-bright transition-all duration-300" title="YouTube Showreel" data-cursor="YT">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-white/10 hover:border-gold-bright bg-black/40 flex items-center justify-center text-soft-grey hover:text-gold-bright transition-all duration-300" title="LinkedIn" data-cursor="IN">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Footer Bottom Bar -->
+        <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-soft-grey/60">
+          <p>© 2026 Aarya Bhujade — AI Filmmaker & Artist. All frames generated & graded with intent.</p>
+          <div class="flex items-center gap-4">
+            <span class="text-gold-molten">LOCATION: MUMBAI</span>
+            <span>//</span>
+            <span>24 FPS</span>
+            <span>//</span>
+            <span class="flex items-center gap-1">
+              <span class="w-2 h-2 rounded-full bg-green-500"></span>
+              REC READY
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- CINEMA PROJECT DETAIL MODAL -->
+  <div id="project-modal" class="hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-xl items-center justify-center p-4 sm:p-8 overflow-y-auto">
+    <div class="relative w-full max-w-4xl my-auto">
+      <!-- Close Button -->
+      <button id="close-modal-btn" class="absolute -top-12 right-0 sm:top-4 sm:right-4 z-50 p-2 text-white/70 hover:text-gold-bright bg-black/80 rounded-full border border-white/20 transition-colors" data-cursor="CLOSE">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- Modal Body (Injected by main.js) -->
+      <div id="modal-body" class="w-full"></div>
+    </div>
+  </div>
+
+  <!-- FULLSCREEN INTERACTIVE COMIC READER MODAL -->
+  <div id="comic-modal" class="hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex flex-col justify-between overflow-hidden">
+    <!-- Comic Reader Top Bar -->
+    <div class="p-4 sm:px-8 border-b border-white/10 flex items-center justify-between z-20 bg-black/85 backdrop-blur-md">
+      <div class="flex items-center gap-3">
+        <span id="comic-modal-tag" class="px-2.5 py-0.5 rounded text-[10px] font-mono tracking-widest uppercase bg-gold-molten/20 text-gold-bright border border-gold-molten/40">
+          COMIC CHRONICLE
+        </span>
+        <h3 id="comic-modal-title" class="font-cinematic text-lg sm:text-2xl text-white tracking-wider truncate max-w-xs sm:max-w-md md:max-w-xl">
+          THE ART OF HUMILITY
+        </h3>
+      </div>
+      <div class="flex items-center gap-3 sm:gap-4">
+        <!-- Panel Counter Badge -->
+        <span id="comic-slide-counter" class="font-mono text-xs sm:text-sm text-gold-bright bg-black/70 px-3 py-1 rounded border border-gold-molten/30 shadow-gold-glow">
+          PANEL 01 / 07
+        </span>
+        <!-- Instagram Link -->
+        <a id="comic-modal-ig-link" href="#" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded border border-white/10 hover:border-gold-molten/50 text-soft-grey hover:text-white text-xs font-mono transition-colors">
+          <span>ORIGINAL POST</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+        <!-- Close Button -->
+        <button id="close-comic-modal-btn" class="p-2 text-white/80 hover:text-gold-bright bg-white/5 hover:bg-white/10 rounded-full transition-colors border border-white/10" data-cursor="CLOSE">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Panel Stage Viewport with Nav Chevrons -->
+    <div class="relative flex-1 flex items-center justify-center p-2 sm:p-6 overflow-hidden select-none">
+      <!-- Prev Button -->
+      <button id="comic-prev-btn" class="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-black/80 hover:bg-gold-molten border border-gold-molten/40 hover:border-gold-bright text-white hover:text-black flex items-center justify-center transition-all duration-300 shadow-xl shadow-black/80 hover:scale-105" title="Previous Panel (Left Arrow)">
+        <svg class="w-6 h-6 -translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+
+      <!-- Active Comic Image Stage -->
+      <div class="relative max-h-full max-w-full flex items-center justify-center">
+        <img id="comic-active-image" src="" alt="Comic Panel" class="max-h-[66vh] sm:max-h-[74vh] w-auto max-w-[90vw] object-contain rounded-lg shadow-2xl border border-white/10 transition-all duration-300" />
+      </div>
+
+      <!-- Next Button -->
+      <button id="comic-next-btn" class="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-black/80 hover:bg-gold-molten border border-gold-molten/40 hover:border-gold-bright text-white hover:text-black flex items-center justify-center transition-all duration-300 shadow-xl shadow-black/80 hover:scale-105" title="Next Panel (Right Arrow)">
+        <svg class="w-6 h-6 translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+
+    <!-- Comic Reader Bottom Strip: Caption Drawer & Thumbnails -->
+    <div class="p-3 sm:px-8 border-t border-white/10 bg-black/90 backdrop-blur-md space-y-3 z-20">
+      <!-- Caption snippet & Keyboard shortcut hints -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+        <p id="comic-modal-caption" class="text-soft-grey italic line-clamp-1 max-w-3xl font-sans"></p>
+        <div class="hidden md:flex items-center gap-2 font-mono text-[10px] text-soft-grey/60">
+          <span class="px-1.5 py-0.5 rounded bg-white/10 border border-white/5">← / →</span> KEYBOARD NAV
+          <span>•</span>
+          <span class="px-1.5 py-0.5 rounded bg-white/10 border border-white/5">ESC</span> TO EXIT
+        </div>
+      </div>
+      <!-- Horizontal Thumbnails Strip -->
+      <div id="comic-thumbnails-strip" class="flex items-center gap-2.5 overflow-x-auto pb-1.5 scrollbar-thin">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT SUCCESS CONFIRMATION MODAL -->
+  <div id="form-success-modal" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-md items-center justify-center p-6">
+    <div class="glass-card max-w-md p-8 rounded-xl text-center space-y-5 border border-gold-bright shadow-gold-glow-lg">
+      <div class="w-16 h-16 mx-auto rounded-full bg-gold-molten/20 border border-gold-bright flex items-center justify-center">
+        <svg class="w-8 h-8 text-gold-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      <h3 class="font-cinematic text-3xl tracking-wider text-white text-gold-metallic">
+        TRANSMISSION RECEIVED
+      </h3>
+      <p class="text-sm text-soft-grey leading-relaxed">
+        Your creative brief has been recorded. Aarya Bhujade will review your production requirements and respond within 24 hours.
+      </p>
+      <div class="pt-2">
+        <button id="close-success-btn" class="px-8 py-2.5 rounded bg-gold-molten hover:bg-gold-bright text-black font-mono text-xs tracking-widest font-semibold uppercase transition-colors">
+          RETURN TO SCREENING
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Entry -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

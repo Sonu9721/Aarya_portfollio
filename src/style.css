@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Bebas+Neue&family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-cinema-black: #050507;
+  --color-cinema-charcoal: #0B0B0E;
+  --color-gold-molten: #D4A017;
+  --color-gold-bright: #F5C542;
+  --color-steel-blue: #0E1B2A;
+  --color-cyber-teal: #14283A;
+  --color-burnt-orange: #E8842B;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #050507;
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #050507;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 35mm Procedural Film Grain Overlay */
+.film-grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9990;
+  opacity: 0.055;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Anamorphic Lens Flare Beam */
+.anamorphic-flare {
+  position: absolute;
+  pointer-events: none;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    rgba(212, 160, 23, 0) 0%, 
+    rgba(212, 160, 23, 0.4) 25%, 
+    rgba(245, 197, 66, 0.95) 50%, 
+    rgba(212, 160, 23, 0.4) 75%, 
+    rgba(212, 160, 23, 0) 100%);
+  filter: blur(1px);
+  box-shadow: 0 0 16px rgba(245, 197, 66, 0.8), 0 0 35px rgba(212, 160, 23, 0.5);
+}
+
+.anamorphic-flare-blue {
+  position: absolute;
+  pointer-events: none;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    rgba(20, 40, 58, 0) 0%, 
+    rgba(30, 80, 120, 0.5) 25%, 
+    rgba(60, 160, 240, 0.9) 50%, 
+    rgba(30, 80, 120, 0.5) 75%, 
+    rgba(20, 40, 58, 0) 100%);
+  filter: blur(1px);
+  box-shadow: 0 0 16px rgba(60, 160, 240, 0.7), 0 0 40px rgba(30, 80, 120, 0.5);
+}
+
+/* Metallic Gold Typography Sheen */
+.text-gold-metallic {
+  background: linear-gradient(135deg, 
+    #FFFFFF 0%, 
+    #FFF4D0 18%, 
+    #F5C542 45%, 
+    #D4A017 75%, 
+    #8E6709 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gold-subtle {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5C542 50%, #D4A017 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Gold Underline Draw Animation */
+.gold-draw-line {
+  position: relative;
+}
+.gold-draw-line::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #D4A017, #F5C542);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gold-draw-line:hover::after,
+.group:hover .gold-draw-line::after {
+  width: 100%;
+}
+
+/* 35mm Sprocket Strip */
+.film-sprocket-border {
+  position: relative;
+  background-color: #050507;
+  border-top: 14px solid #08080C;
+  border-bottom: 14px solid #08080C;
+}
+
+.film-sprocket-border::before,
+.film-sprocket-border::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 8px;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #D4A017 35%, transparent 40%);
+  background-size: 28px 8px;
+  opacity: 0.35;
+}
+
+.film-sprocket-border::before {
+  top: -11px;
+}
+
+.film-sprocket-border::after {
+  bottom: -11px;
+}
+
+/* Cinema Spotlight Effect on Gallery Grid */
+.spotlight-active .portfolio-card:not(:hover) {
+  opacity: 0.35;
+  filter: grayscale(40%) brightness(0.7);
+  transition: all 0.45s ease;
+}
+
+.portfolio-card {
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px -10px rgba(212, 160, 23, 0.35), 0 0 20px rgba(245, 197, 66, 0.15);
+  border-color: rgba(212, 160, 23, 0.7);
+  z-index: 10;
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+  background: rgba(11, 11, 14, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-card-steel {
+  background: rgba(14, 27, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Custom Cursor */
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: #F5C542;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(212, 160, 23, 0.5);
+  box-shadow: 0 0 12px rgba(232, 132, 43, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease-out, width 0.25s ease, height 0.25s ease, border-color 0.2s ease, background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-cursor-ring.hover-active {
+  width: 72px;
+  height: 72px;
+  background-color: rgba(212, 160, 23, 0.15);
+  border-color: rgba(245, 197, 66, 0.9);
+  backdrop-filter: blur(2px);
+}
+
+.custom-cursor-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #F5C542;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.custom-cursor-ring.hover-active .custom-cursor-text {
+  opacity: 1;
+}
+
+@media (pointer: coarse) {
+  .custom-cursor-dot, .custom-cursor-ring {
+    display: none !important;
+  }
+}
+
+/* Letterbox Bars for Showreel */
+.cinema-letterbox {
+  box-shadow: inset 0 25px 35px -10px rgba(0, 0, 0, 0.95), inset 0 -25px 35px -10px rgba(0, 0, 0, 0.95);
+}
+
+.cinema-loader {
+  position: fixed;
+  inset: 0;
+  background-color: #050507;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+}
+
+.cinema-loader.fade-out {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050507;
+}
+::-webkit-scrollbar-thumb {
+  background: #252530;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4A017;
+}
