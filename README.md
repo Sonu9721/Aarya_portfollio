@@ -29,3 +29,8 @@ Personal portfolio website built with modern web technologies showcasing project
    ```bash
    npm run preview
    ```
+
+5. **Run integrity tests:**
+   ```bash
+   npm test
+   ```

@@ -64,6 +64,18 @@ export class ShowreelCinemaPlayer {
     this.videoEl.addEventListener('canplay', () => {
       this.showSpinner(false);
     });
+
+    // Keep the master file off the initial network path. Load it once the
+    // player actually enters the viewport, or immediately when playback starts.
+    if ('IntersectionObserver' in window && this.screenWrapper) {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          this.ensureSource();
+          observer.disconnect();
+        }
+      });
+      observer.observe(this.screenWrapper);
+    }
   }
 
   showSpinner(show) {
@@ -166,8 +178,16 @@ export class ShowreelCinemaPlayer {
     }
   }
 
+  ensureSource() {
+    if (!this.videoEl) return;
+    if (!this.videoEl.getAttribute('src') && this.videoEl.dataset.src) {
+      this.videoEl.src = this.videoEl.dataset.src;
+    }
+  }
+
   async startPlayback() {
     if (!this.videoEl) return;
+    this.ensureSource();
     this.showSpinner(true);
 
     try {

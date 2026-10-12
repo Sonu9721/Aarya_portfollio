@@ -62,10 +62,15 @@ export function initCustomCursor() {
   }
   animateRing();
 
-  // Attach hover triggers dynamically
+  // Bind each control once. The slate timecode rewrites text continuously, so an
+  // unbounded observer would stack duplicate listeners on every frame.
+  const bound = new WeakSet();
+
   function attachHoverListeners() {
-    const interactables = document.querySelectorAll('[data-cursor]');
-    interactables.forEach((el) => {
+    document.querySelectorAll('[data-cursor]').forEach((el) => {
+      if (bound.has(el)) return;
+      bound.add(el);
+
       el.addEventListener('mouseenter', () => {
         const action = el.getAttribute('data-cursor') || '';
         ring.classList.add('hover-active');
@@ -83,9 +88,10 @@ export function initCustomCursor() {
 
   attachHoverListeners();
 
-  // Re-attach if DOM changes
+  let bindFrame = 0;
   const observer = new MutationObserver(() => {
-    attachHoverListeners();
+    cancelAnimationFrame(bindFrame);
+    bindFrame = requestAnimationFrame(attachHoverListeners);
   });
   observer.observe(document.body, { childList: true, subtree: true });
 }

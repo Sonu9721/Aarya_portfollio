@@ -47,14 +47,14 @@ export class CinematicParticleEngine {
     };
 
     // Pre-render soft bokeh discs
-    this.sprites.goldBokeh = createDisc(64, 'rgba(245, 197, 66, 0.9)', 'rgba(212, 160, 23, 0.2)');
-    this.sprites.brightBokeh = createDisc(64, 'rgba(255, 245, 200, 0.95)', 'rgba(245, 197, 66, 0.2)');
-    this.sprites.orangeBokeh = createDisc(64, 'rgba(232, 132, 43, 0.85)', 'rgba(180, 80, 20, 0.15)');
+    this.sprites.goldBokeh = createDisc(64, 'rgba(232, 180, 188, 0.9)', 'rgba(142, 42, 58, 0.25)');
+    this.sprites.brightBokeh = createDisc(64, 'rgba(255, 240, 242, 0.95)', 'rgba(196, 137, 147, 0.22)');
+    this.sprites.orangeBokeh = createDisc(64, 'rgba(142, 42, 58, 0.85)', 'rgba(74, 18, 30, 0.2)');
 
     // Pre-render sharp dust points
-    this.sprites.goldDot = createDisc(16, '#F5C542', 'rgba(212, 160, 23, 0.4)');
-    this.sprites.brightDot = createDisc(16, '#FFFFFF', 'rgba(245, 197, 66, 0.4)');
-    this.sprites.orangeDot = createDisc(16, '#E8842B', 'rgba(232, 132, 43, 0.3)');
+    this.sprites.goldDot = createDisc(16, '#F6E7E9', 'rgba(196, 137, 147, 0.45)');
+    this.sprites.brightDot = createDisc(16, '#FFFFFF', 'rgba(246, 231, 233, 0.4)');
+    this.sprites.orangeDot = createDisc(16, '#8E2A3C', 'rgba(142, 42, 58, 0.35)');
   }
 
   setupObserver() {

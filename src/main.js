@@ -3,8 +3,6 @@ import { initCustomCursor } from './cursor.js';
 import { cinemaAudio } from './audio.js';
 import { ShowreelCinemaPlayer } from './showreel-player.js';
 import { PROJECTS, ALL_INSTAGRAM_REELS, COMIC_CAROUSELS } from './projects-data.js';
-import confetti from 'canvas-confetti';
-import { createIcons, icons } from 'lucide';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 0. Immediately dismiss any opening cinema loader
@@ -26,10 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Initialize Theatrical Showreel Player
   new ShowreelCinemaPlayer();
 
-  // 4. Lucide Icons
-  createIcons({ icons });
-
-  // 5. Sound Atmosphere Toggle
+  // 4. Sound Atmosphere Toggle
   const soundToggleBtn = document.getElementById('sound-toggle-btn');
   const soundWave = document.getElementById('sound-waves-indicator');
   const soundLabel = document.getElementById('sound-label');
@@ -51,15 +46,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Navigation Scroll & Blur State
+  // 5. Navigation Scroll & Blur State
   const navbar = document.getElementById('main-nav');
+  let navFrame = 0;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add('bg-[#050507]/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
-    } else {
-      navbar.classList.remove('bg-[#050507]/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
-    }
-  });
+    if (navFrame) return;
+    navFrame = requestAnimationFrame(() => {
+      navFrame = 0;
+      if (!navbar) return;
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-[#080406]/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
+      } else {
+        navbar.classList.remove('bg-[#080406]/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
+      }
+    });
+  }, { passive: true });
 
   // Mobile Menu Toggle
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -67,17 +68,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
 
   if (mobileMenuBtn && mobileMenuDrawer) {
+    const setMobileMenuOpen = (open) => {
+      mobileMenuDrawer.classList.toggle('hidden', !open);
+      mobileMenuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
     mobileMenuBtn.addEventListener('click', () => {
-      mobileMenuDrawer.classList.toggle('hidden');
+      setMobileMenuOpen(mobileMenuDrawer.classList.contains('hidden'));
     });
     if (closeMobileMenuBtn) {
       closeMobileMenuBtn.addEventListener('click', () => {
-        mobileMenuDrawer.classList.add('hidden');
+        setMobileMenuOpen(false);
       });
     }
     mobileMenuDrawer.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
-        mobileMenuDrawer.classList.add('hidden');
+        setMobileMenuOpen(false);
       });
     });
   }
@@ -96,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     filtered.forEach((project) => {
       const card = document.createElement('div');
-      card.className = 'portfolio-card group relative rounded-lg overflow-hidden border border-white/10 bg-[#0B0B0E] cursor-pointer';
+      card.className = 'portfolio-card group relative rounded-lg overflow-hidden border border-white/10 bg-[#14080C] cursor-pointer';
       card.setAttribute('data-cursor', 'PLAY');
       card.setAttribute('data-id', project.id);
 
@@ -104,12 +109,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       card.innerHTML = `
         <!-- Poster Media Container -->
-        <div class="relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden bg-[#07070A]">
+        <div class="relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden bg-[#10080B]">
           <!-- Still Image -->
           <img 
             src="${project.image}" 
             alt="${project.title}" 
             loading="lazy"
+            decoding="async"
             class="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105"
           />
           
@@ -126,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ` : ''}
 
           <!-- Ambient Vignette & Cinema Bar Gradients -->
-          <div class="absolute inset-0 bg-gradient-to-t from-[#0B0B0E] via-transparent to-black/40 opacity-80 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#14080C] via-transparent to-black/40 opacity-80 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none"></div>
           
           <!-- Category & Laurel Badges -->
           <div class="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
@@ -241,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
     reelsGrid.innerHTML = '';
     ALL_INSTAGRAM_REELS.forEach((reel) => {
       const reelCard = document.createElement('div');
-      reelCard.className = 'group relative rounded-xl overflow-hidden border border-white/10 bg-[#0B0B0E] hover:border-gold-molten/70 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-lg hover:shadow-gold-glow';
+      reelCard.className = 'group relative rounded-xl overflow-hidden border border-white/10 bg-[#14080C] hover:border-gold-molten/70 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-lg hover:shadow-gold-glow';
       reelCard.setAttribute('data-cursor', 'REEL');
 
       const reelPreview = reel.previewVideo || reel.videoFile;
@@ -252,8 +258,11 @@ document.addEventListener('DOMContentLoaded', () => {
           <img 
             src="${reel.thumbnail}" 
             alt="${reel.title}" 
+            loading="lazy"
+            decoding="async"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
+          ${reelPreview ? `
           <video 
             class="reel-hover-video absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" 
             data-src="${reelPreview}" 
@@ -261,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loop 
             playsinline 
             preload="none"
-          ></video>
+          ></video>` : ''}
 
           <!-- Top Metadata Badge -->
           <div class="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between pointer-events-none z-10">
@@ -284,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <!-- Reel Title & Instagram Action -->
-        <div class="p-3.5 space-y-2 border-t border-white/5 bg-[#07070A]">
+        <div class="p-3.5 space-y-2 border-t border-white/5 bg-[#10080B]">
           <h4 class="font-cinematic text-lg tracking-wider text-white group-hover:text-gold-bright transition-colors truncate">
             ${reel.title}
           </h4>
@@ -292,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ${reel.caption}
           </p>
           <div class="pt-2 border-t border-white/5 flex items-center justify-between font-mono text-[10px]">
-            <span class="text-gold-molten">PLAY VIDEO ➔</span>
+            <span class="text-gold-molten">${reel.videoFile ? 'PLAY VIDEO ➔' : 'INSTAGRAM ➔'}</span>
             <a href="${reel.instagramUrl}" target="_blank" rel="noopener" class="text-soft-grey/60 hover:text-white flex items-center gap-1" onclick="event.stopPropagation();">
               <span>INSTAGRAM</span>
               <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -381,11 +390,11 @@ document.addEventListener('DOMContentLoaded', () => {
         ` : `
           <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover"/>
         `}
-        <div class="absolute inset-0 bg-gradient-to-t from-[#0B0B0E] via-transparent to-transparent pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#14080C] via-transparent to-transparent pointer-events-none"></div>
       </div>
 
       <!-- Modal Content Body -->
-      <div class="p-6 sm:p-10 space-y-8 bg-[#0B0B0E] rounded-b-xl border-x border-b border-white/10">
+      <div class="p-6 sm:p-10 space-y-8 bg-[#14080C] rounded-b-xl border-x border-b border-white/10">
         <!-- Title & Badges -->
         <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 border-b border-white/10 pb-6">
           <div>
@@ -517,6 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modalContent.innerHTML = `
       <div class="relative w-full max-w-lg mx-auto bg-black rounded-xl overflow-hidden border border-gold-molten/50 shadow-gold-glow">
         <div class="relative aspect-[9/16] bg-black">
+          ${reel.videoFile ? `
           <video 
             id="modal-reel-player"
             src="${reel.videoFile}" 
@@ -526,12 +536,13 @@ document.addEventListener('DOMContentLoaded', () => {
             preload="auto"
             class="w-full h-full object-contain bg-black"
           ></video>
-          <!-- Loading Spinner -->
           <div id="modal-reel-spinner" class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20">
             <div class="w-12 h-12 rounded-full border-2 border-gold-molten/30 border-t-gold-bright animate-spin"></div>
-          </div>
+          </div>` : `
+          <img src="${reel.thumbnail}" alt="${reel.title}" class="w-full h-full object-cover" />
+          `}
         </div>
-        <div class="p-5 bg-[#0B0B0E] space-y-3">
+        <div class="p-5 bg-[#14080C] space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-mono uppercase tracking-widest text-gold-bright bg-gold-molten/20 px-2.5 py-0.5 rounded border border-gold-molten/40">
               ${reel.category} // ${reel.runtime}
@@ -627,7 +638,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     COMIC_CAROUSELS.forEach((comic) => {
       const card = document.createElement('div');
-      card.className = 'group relative rounded-xl overflow-hidden border border-white/10 bg-[#0B0B0E] hover:border-gold-molten/70 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-lg hover:shadow-gold-glow';
+      card.className = 'group relative rounded-xl overflow-hidden border border-white/10 bg-[#14080C] hover:border-gold-molten/70 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-lg hover:shadow-gold-glow';
       card.setAttribute('data-cursor', 'READ');
 
       card.innerHTML = `
@@ -637,11 +648,12 @@ document.addEventListener('DOMContentLoaded', () => {
             src="${comic.cover}" 
             alt="${comic.title}" 
             loading="lazy"
+            decoding="async"
             class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
           />
 
           <!-- Vignette Gradient -->
-          <div class="absolute inset-0 bg-gradient-to-t from-[#0B0B0E] via-transparent to-black/30 pointer-events-none"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#14080C] via-transparent to-black/30 pointer-events-none"></div>
 
           <!-- Badges -->
           <div class="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
@@ -663,7 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <!-- Meta Info -->
-        <div class="p-5 flex flex-col justify-between flex-1 space-y-3 bg-[#0B0B0E]">
+        <div class="p-5 flex flex-col justify-between flex-1 space-y-3 bg-[#14080C]">
           <div>
             <div class="flex items-center justify-between text-[11px] font-mono text-gold-molten/90 mb-1">
               <span>STATIC CAROUSEL</span>
@@ -828,21 +840,22 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      try {
-        confetti({
-          particleCount: 70,
-          spread: 80,
-          origin: { y: 0.75 },
-          colors: ['#D4A017', '#F5C542', '#E8842B', '#FFFFFF']
-        });
-      } catch (err) {}
-
       if (formSuccessModal) {
         formSuccessModal.classList.remove('hidden');
         formSuccessModal.classList.add('flex');
       }
-
       contactForm.reset();
+
+      import('canvas-confetti')
+        .then(({ default: confetti }) => {
+          confetti({
+            particleCount: 70,
+            spread: 80,
+            origin: { y: 0.75 },
+            colors: ['#8E2A3C', '#C48993', '#F6E7E9', '#FFFFFF']
+          });
+        })
+        .catch(() => {});
     });
   }
 
@@ -856,14 +869,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // 11. Live Timecode Clock in Footer & Slate
   function updateRecTimecode() {
     const clockEl = document.getElementById('slate-live-timecode');
-    if (!clockEl) return;
+    if (!clockEl || document.hidden) return;
     const now = new Date();
     const pad = (n) => String(n).padStart(2, '0');
     const h = pad(now.getHours());
     const m = pad(now.getMinutes());
     const s = pad(now.getSeconds());
     const frames = pad(Math.floor((now.getMilliseconds() / 1000) * 24));
-    clockEl.innerText = `${h}:${m}:${s}:${frames}`;
+    const stamp = `${h}:${m}:${s}:${frames}`;
+    // Update the existing text node so the cursor observer is not retriggered.
+    if (clockEl.firstChild && clockEl.firstChild.nodeType === Node.TEXT_NODE) {
+      clockEl.firstChild.nodeValue = stamp;
+    } else {
+      clockEl.textContent = stamp;
+    }
   }
   setInterval(updateRecTimecode, 41);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) updateRecTimecode();
+  });
 });

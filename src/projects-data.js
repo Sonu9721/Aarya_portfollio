@@ -3,7 +3,10 @@
  * Master database curated for Aarya Bhujade (@aarya_x_apertures).
  */
 
+import { CLIENT_CAMPAIGNS, CLIENT_CAMPAIGN_REELS } from './client-campaigns.js';
+
 export const PROJECTS = [
+  ...CLIENT_CAMPAIGNS,
   // --- CLIENT COMMERCIALS & BRAND PRODUCTIONS ---
   {
     id: 'glamirk-commercial',
@@ -313,177 +316,6 @@ export const PROJECTS = [
     }
   },
 
-  // --- BRAND CAMPAIGNS & LIVE PRODUCTIONS ---
-  {
-    id: 'swastik-ganesh-utsav',
-    title: 'SWASTIK: SACRED CELEBRATIONS',
-    tag: 'COMMERCIAL',
-    category: 'ads',
-    year: '2024',
-    format: '9:16 THEATRICAL // 4K',
-    runtime: '00:54',
-    laurel: 'Official Swastik Stories Production',
-    image: '/assets/images/reels/reel_4_DNwuSMfYnr7_thumb.jpg',
-    videoFile: '/assets/videos/reel_4_DNwuSMfYnr7.mp4',
-    previewVideo: '/assets/videos/reel_4_DNwuSMfYnr7_preview.mp4',
-    instagramUrl: 'https://www.instagram.com/reel/DNwuSMfYnr7/',
-    logline: 'With joy, devotion and togetherness: welcoming Bappa into homes and hearts through emotive visual storytelling.',
-    synopsis: 'Produced by Aarya Bhujade as AI Artist and Motion Designer at Swastik Stories. Weaving traditional festive devotion with contemporary motion graphics and golden particle embers.',
-    pipeline: [
-      { step: 'Visual Concept', tool: 'Swastik Stories Creative Direction' },
-      { step: 'Motion Design', tool: 'After Effects Kinetic Graphics' },
-      { step: 'Generative Elements', tool: 'AI Floral & Lighting Enhancement' },
-      { step: 'Sound & Master', tool: 'Premiere Pro Festive Master' }
-    ],
-    stats: {
-      fps: '30 FPS',
-      resolution: '720 × 1280 (High Bitrate)',
-      renderPasses: 'Swastik Production Pipeline',
-      directorNote: 'This festive film is an emotion we cherish every year. Ensuring cultural reverence while introducing sleek modern motion design was the primary directive.'
-    }
-  },
-  {
-    id: 'sunburn-goa',
-    title: 'SUNBURN GOA: ELECTRONIC HORIZONS',
-    tag: 'COMMERCIAL',
-    category: 'ads',
-    year: '2023',
-    format: '9:16 FESTIVAL CAMPAIGN',
-    runtime: '00:31',
-    laurel: 'Sunburn Festival Official Coverage',
-    image: '/assets/images/reels/reel_11_C2KYZ2wsWEc_thumb.jpg',
-    videoFile: '/assets/videos/reel_11_C2KYZ2wsWEc.mp4',
-    previewVideo: '/assets/videos/reel_11_C2KYZ2wsWEc_preview.mp4',
-    instagramUrl: 'https://www.instagram.com/reel/C2KYZ2wsWEc/',
-    logline: 'Hypnotic beats, laser storms, and crowd ecstasy at Sunburn Festival Goa.',
-    synopsis: 'High-octane commercial coverage of Asia\'s premier electronic music festival. Features strobe-synchronized cuts, low-light optical performance, and dynamic camera moves through 50,000-strong festival crowds.',
-    pipeline: [
-      { step: 'Crowd Cinematography', tool: 'Low-Light Dual ISO Camera' },
-      { step: 'Speed Ramping', tool: 'Optical Flow Frame Interpolation' },
-      { step: 'Laser Glow & Grading', tool: 'Custom LUTs + Neon Flare Enhancement' },
-      { step: 'Audio Sync', tool: 'Psy-Trance & Techno Beat Synchronization' }
-    ],
-    stats: {
-      fps: '30 FPS',
-      resolution: '720 × 1280',
-      renderPasses: 'Beat-Matched Cut Pipeline',
-      directorNote: 'Energy in festival filmmaking is about cutting on the transient of the kick drum. Every frame here pulses with raw sonic adrenaline.'
-    }
-  },
-
-  // --- DOCUMENTARY & CINEMATIC EXPEDITIONS ---
-  {
-    id: 'ladakh-expedition',
-    title: 'LADAKH: BEYOND THE CLOUDS',
-    tag: 'VFX SHOT',
-    category: 'vfx',
-    year: '2024',
-    format: 'CINEMATIC TRAVEL // 4K',
-    runtime: '00:21',
-    laurel: 'VsnapU Luxury Shoot Expedition',
-    image: '/assets/images/reels/reel_5_DB90UpYo5R4_thumb.jpg',
-    videoFile: '/assets/videos/reel_5_DB90UpYo5R4.mp4',
-    previewVideo: '/assets/videos/reel_5_DB90UpYo5R4_preview.mp4',
-    instagramUrl: 'https://www.instagram.com/reel/DB90UpYo5R4/',
-    logline: 'Finding peace over chaos in the high-altitude mountain desert of Leh-Ladakh.',
-    synopsis: 'Shot on location in Leh-Ladakh as part of Aarya\'s work with VsnapU. Documenting the human spirit, stark Himalayan topography, and heartfelt spontaneous encounters with local village children.',
-    pipeline: [
-      { step: 'On-Location Camera', tool: 'High-Speed Gimbal & Prime Lens' },
-      { step: 'Lighting & Grading', tool: 'Natural Himalayan Sunlight & ACES' },
-      { step: 'Narrative Voiceover', tool: 'Original Monologue' },
-      { step: 'Final Polish', tool: 'DaVinci Resolve Film Grain' }
-    ],
-    stats: {
-      fps: '30 FPS',
-      resolution: '720 × 1280',
-      renderPasses: 'Raw Log to Rec.709 Grade',
-      directorNote: 'Some landscapes demand silence. Ladakh taught me the art of patient framing and letting the environment tell the story.'
-    }
-  },
-  {
-    id: 'iaf-aerial-mumbai',
-    title: 'IAF: AERIAL SPECTACLE MARINE DRIVE',
-    tag: 'VFX SHOT',
-    category: 'vfx',
-    year: '2024',
-    format: '4K ULTRA TELEPHOTO',
-    runtime: '00:26',
-    laurel: 'Government of Maharashtra Outreach',
-    image: '/assets/images/reels/reel_12_C2Ar8eDS3Lp_thumb.jpg',
-    videoFile: '/assets/videos/reel_12_C2Ar8eDS3Lp.mp4',
-    previewVideo: '/assets/videos/reel_12_C2Ar8eDS3Lp_preview.mp4',
-    instagramUrl: 'https://www.instagram.com/reel/C2Ar8eDS3Lp/',
-    logline: 'Indian Air Force fighter jets dazzle Mumbai with high-g supersonic aerobatics over the Arabian Sea.',
-    synopsis: 'Capturing the Indian Air Force outreach aerial display over Marine Drive, Mumbai. Extreme telephoto tracking of Sukhoi Su-30MKI and Surya Kiran aerobatic teams slicing through Mumbai coastal humidity.',
-    pipeline: [
-      { step: 'High-Velocity Tracking', tool: 'Manual Telephoto Camera Rig' },
-      { step: 'Haze Penetration', tool: 'De-haze & Contrast Optimization' },
-      { step: 'Audio Engineering', tool: 'Engine Roar & Afterburner Boost' },
-      { step: 'Master Delivery', tool: '4K Theatrical Sharpening' }
-    ],
-    stats: {
-      fps: '30 FPS',
-      resolution: '720 × 1280',
-      renderPasses: '600mm Long-Lens Tracking',
-      directorNote: 'Tracking Mach-speed jets manually across the Marine Drive coastline requires absolute precision and instinctive anticipation.'
-    }
-  },
-  {
-    id: 'kala-ghoda-mumbai',
-    title: 'KALA GHODA: SOUL OF MUMBAI',
-    tag: 'MATTE PAINT',
-    category: 'stills',
-    year: '2024',
-    format: 'DOCUMENTARY PORTRAITURE',
-    runtime: '00:36',
-    laurel: 'Kala Ghoda Arts Festival',
-    image: '/assets/images/reels/reel_9_C7cB8-XoEFQ_thumb.jpg',
-    videoFile: '/assets/videos/reel_9_C7cB8-XoEFQ.mp4',
-    previewVideo: '/assets/videos/reel_9_C7cB8-XoEFQ_preview.mp4',
-    instagramUrl: 'https://www.instagram.com/reel/C7cB8-XoEFQ/',
-    logline: 'Every masterpiece begins with a simple act of kindness: appreciating street artists in the heart of Mumbai.',
-    synopsis: 'An evocative documentary portraiture piece exploring the live sketch artists and sculptors of the iconic Kala Ghoda Arts Festival in South Mumbai. Intimate close-ups on charcoal, chalk, and facial expressions.',
-    pipeline: [
-      { step: 'Street Portraiture', tool: '85mm f/1.4 Bokeh Aperture' },
-      { step: 'Natural Ambient Tone', tool: 'South Mumbai Heritage Grade' },
-      { step: 'Micro-Motion', tool: 'Handheld Tactile Movement' },
-      { step: 'Color Balance', tool: 'Warm Celluloid Emulation' }
-    ],
-    stats: {
-      fps: '30 FPS',
-      resolution: '720 × 1280',
-      renderPasses: 'Documentary Master',
-      directorNote: 'A tribute to the tactile, human origins of all art before the advent of pixels.'
-    }
-  },
-  {
-    id: 'monochrome-photowalk',
-    title: 'THE MONOCHROME APERTURE',
-    tag: 'MATTE PAINT',
-    category: 'stills',
-    year: '2024',
-    format: 'BLACK & WHITE CINEMATOGRAPHY',
-    runtime: '00:20',
-    laurel: 'Street Composition Showcase',
-    image: '/assets/images/reels/reel_8_C-rMfPto3hr_thumb.jpg',
-    videoFile: '/assets/videos/reel_8_C-rMfPto3hr.mp4',
-    previewVideo: '/assets/videos/reel_8_C-rMfPto3hr_preview.mp4',
-    instagramUrl: 'https://www.instagram.com/reel/C-rMfPto3hr/',
-    logline: 'Angles, contrasts, and sacred geometry: exploring street photowalks in timeless monochrome.',
-    synopsis: 'A masterclass study in light, shadow, and architectural framing. Stripping away color to highlight negative space, symmetry, and street life dynamism.',
-    pipeline: [
-      { step: 'Monochrome Framing', tool: 'High-Contrast B&W Sensor Curve' },
-      { step: 'Zone System Grading', tool: 'Ansel Adams Tonal Mapping' },
-      { step: 'Sprocket Grain', tool: 'Kodak Tri-X 400 Grain Profile' },
-      { step: 'Pacing', tool: 'Meditative Beat Timing' }
-    ],
-    stats: {
-      fps: '30 FPS',
-      resolution: '720 × 1280',
-      renderPasses: 'Silver Halide Simulation',
-      directorNote: 'When you take away color, you are left with pure composition, rhythm, and emotion.'
-    }
-  }
 ];
 
 /**
@@ -491,6 +323,7 @@ export const PROJECTS = [
  * Fully optimized with faststart and instant hover preview clips.
  */
 export const ALL_INSTAGRAM_REELS = [
+  ...CLIENT_CAMPAIGN_REELS,
   // Commercial & Client Reels (Featured at the top)
   {
     id: 'client-reel-glamirk',
@@ -661,30 +494,6 @@ export const ALL_INSTAGRAM_REELS = [
     thumbnail: '/assets/images/reels/reel_2_DT4sIS7iJXy_thumb.jpg',
     instagramUrl: 'https://www.instagram.com/reel/DT4sIS7iJXy/',
     caption: 'Philosophical visual meditation: because some souls are too pure for the noise of the world.'
-  },
-  {
-    id: 'reel-7',
-    code: 'C_XPGShtXNq',
-    title: 'Mumbai Ganpati: Chinchpokli Cha Chintamani',
-    category: 'CULTURE',
-    runtime: '19s',
-    videoFile: '/assets/videos/reel_7_C_XPGShtXNq.mp4',
-    previewVideo: '/assets/videos/reel_7_C_XPGShtXNq_preview.mp4',
-    thumbnail: '/assets/images/reels/reel_7_C_XPGShtXNq_thumb.jpg',
-    instagramUrl: 'https://www.instagram.com/reel/C_XPGShtXNq/',
-    caption: 'Iconic street procession and murti darshan of Chinchpokli Cha Chintamani Mumbai.'
-  },
-  {
-    id: 'reel-1',
-    code: 'DckiH89ylxu',
-    title: 'Childhood Roots: From Memories to Cinema',
-    category: 'HERITAGE',
-    runtime: '10s',
-    videoFile: '/assets/videos/reel_1_DckiH89ylxu.mp4',
-    previewVideo: '/assets/videos/reel_1_DckiH89ylxu_preview.mp4',
-    thumbnail: '/assets/images/reels/reel_1_DckiH89ylxu_thumb.jpg',
-    instagramUrl: 'https://www.instagram.com/reel/DckiH89ylxu/',
-    caption: 'A heartfelt visual tribute celebrating family heritage, nostalgia, and where the artistic journey began.'
   }
 ];
 
