@@ -14,7 +14,7 @@ export const PROJECTS = [
     tag: 'COMMERCIAL',
     category: 'ads',
     year: '2025',
-    format: '9:16 VERTICAL // LUXURY AI',
+    format: 'LUXURY AI',
     runtime: '00:15',
     laurel: 'Commercial Client Production',
     image: '/assets/images/reels/client_reel_glamirk_DcbKUe0TxpT_thumb.jpg',
@@ -31,7 +31,7 @@ export const PROJECTS = [
     ],
     stats: {
       fps: '30 FPS',
-      resolution: '1080 × 1920 (Vertical 9:16)',
+      resolution: '1080 × 1920',
       renderPasses: 'Luxury Studio Grade Pass',
       directorNote: 'Translating luxury aesthetics into generative video requires hyper-consistent specular lighting and velvety focal depth.'
     }
@@ -42,7 +42,7 @@ export const PROJECTS = [
     tag: 'COMMERCIAL',
     category: 'ads',
     year: '2025',
-    format: '9:16 VERTICAL // AUTOMOTIVE',
+    format: 'AUTOMOTIVE',
     runtime: '00:23',
     laurel: 'Automotive Commercial Campaign',
     image: '/assets/images/reels/client_reel_mahindra_DdJaiZThP8N_thumb.jpg',
@@ -173,7 +173,7 @@ export const PROJECTS = [
     ],
     stats: {
       fps: '30 FPS',
-      resolution: '720 × 1280 (Vertical 9:16)',
+      resolution: '720 × 1280',
       renderPasses: '12 Optical Composite Layers',
       directorNote: 'A playful yet technically rigorous exploration of blending practical desk plates with neural horror compositing.'
     }

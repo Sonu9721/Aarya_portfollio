@@ -211,7 +211,7 @@ export const CLIENT_CAMPAIGNS = CAMPAIGNS.map((item) => {
     tag: item.tag,
     category: item.category,
     year: '2026',
-    format: '9:16 VERTICAL // CLIENT FILM',
+    format: 'CLIENT FILM',
     runtime: item.seconds == null ? 'INSTAGRAM' : runtime(item.seconds),
     laurel: 'Client Campaign',
     image: `/assets/images/reels/reel_${item.code}_thumb.jpg`,
@@ -222,7 +222,7 @@ export const CLIENT_CAMPAIGNS = CAMPAIGNS.map((item) => {
     pipeline,
     stats: {
       fps: 'Source reel',
-      resolution: '9:16 vertical',
+      resolution: 'Source master',
       renderPasses: 'AI environment and motion pass',
       directorNote: item.description,
     },

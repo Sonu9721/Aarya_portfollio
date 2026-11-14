@@ -24,7 +24,13 @@ test('page keeps the finished Vercel section structure', () => {
 });
 
 test('showreel master is deferred until the player is needed', () => {
-  assert.match(html, /data-src="\/assets\/videos\/reel_6_DAYbnEMITpG\.mp4"/);
+  assert.match(html, /data-src="\/assets\/videos\/reel_DdauAxzqB8m\.mp4"/);
+  assert.ok(assetExists('/assets/videos/reel_DdauAxzqB8m.mp4'));
+  assert.ok(assetExists('/assets/images/reels/reel_DdauAxzqB8m_thumb.jpg'));
+  assert.doesNotMatch(html, /Ladakh High-Altitude/);
+  assert.doesNotMatch(html, /CONTACT AARYA/);
+  assert.doesNotMatch(html, /ACES 1\.3/);
+  assert.doesNotMatch(html, /35MM ANAMORPHIC/);
   assert.match(html, /preload="none"/);
   assert.doesNotMatch(html, /<video[\s\S]*?\ssrc="\/assets\/videos\/reel_6/);
 });
